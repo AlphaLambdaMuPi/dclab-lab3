@@ -1,0 +1,8 @@
+	component Core is
+		port (
+			clk_clk         : in  std_logic := 'X'; -- clk
+			reset_reset_n   : in  std_logic := 'X'; -- reset_n
+			altpll_0_c0_clk : out std_logic         -- clk
+		);
+	end component Core;
+
