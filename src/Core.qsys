@@ -80,6 +80,14 @@
          type = "boolean";
       }
    }
+   element clock_bridge
+   {
+      datum _sortIndex
+      {
+         value = "9";
+         type = "int";
+      }
+   }
    element jtag_uart
    {
       datum _sortIndex
@@ -89,7 +97,7 @@
       }
       datum sopceditor_expanded
       {
-         value = "0";
+         value = "1";
          type = "boolean";
       }
    }
@@ -131,7 +139,7 @@
       }
       datum sopceditor_expanded
       {
-         value = "0";
+         value = "1";
          type = "boolean";
       }
    }
@@ -152,7 +160,7 @@
       }
       datum sopceditor_expanded
       {
-         value = "0";
+         value = "1";
          type = "boolean";
       }
    }
@@ -197,6 +205,16 @@
    type="conduit"
    dir="end" />
  <interface name="clk" internal="clk_0.clk_in" type="clock" dir="end" />
+ <interface
+   name="clock_bridge_out_clk"
+   internal="clock_bridge.out_clk"
+   type="clock"
+   dir="start" />
+ <interface
+   name="nios2_cpu_debug_reset_request"
+   internal="nios2_cpu.debug_reset_request"
+   type="reset"
+   dir="start" />
  <interface name="reset" internal="clk_0.clk_in_reset" type="reset" dir="end" />
  <module name="altpll_0" kind="altpll" version="15.1" enabled="0">
   <parameter name="AUTO_DEVICE_FAMILY" value="Cyclone IV E" />
@@ -389,9 +407,9 @@
   <parameter name="device">On-Board Peripherals</parameter>
   <parameter name="eai" value="true" />
   <parameter name="exposure" value="false" />
-  <parameter name="line_in_bypass" value="true" />
+  <parameter name="line_in_bypass" value="false" />
   <parameter name="mic_attenuation" value="-6dB" />
-  <parameter name="mic_bypass" value="true" />
+  <parameter name="mic_bypass" value="false" />
   <parameter name="sampling_rate" value="48 kHz" />
   <parameter name="video_format" value="NTSC" />
  </module>
@@ -411,6 +429,15 @@
   <parameter name="clockFrequencyKnown" value="true" />
   <parameter name="inputClockFrequency" value="0" />
   <parameter name="resetSynchronousEdges" value="NONE" />
+ </module>
+ <module
+   name="clock_bridge"
+   kind="altera_clock_bridge"
+   version="15.1"
+   enabled="1">
+  <parameter name="DERIVED_CLOCK_RATE" value="12288000" />
+  <parameter name="EXPLICIT_CLOCK_RATE" value="0" />
+  <parameter name="NUM_CLOCK_OUTPUTS" value="1" />
  </module>
  <module
    name="jtag_uart"
@@ -497,7 +524,7 @@
   <parameter name="instruction_master_high_performance_paddr_size" value="0" />
   <parameter name="instruction_master_paddr_base" value="0" />
   <parameter name="instruction_master_paddr_size" value="0" />
-  <parameter name="internalIrqMaskSystemInfo" value="1" />
+  <parameter name="internalIrqMaskSystemInfo" value="3" />
   <parameter name="io_regionbase" value="0" />
   <parameter name="io_regionsize" value="0" />
   <parameter name="master_addr_map" value="false" />
@@ -726,6 +753,11 @@
    version="15.1"
    start="audio_pll.audio_clk"
    end="audio.clk" />
+ <connection
+   kind="clock"
+   version="15.1"
+   start="audio_pll.audio_clk"
+   end="clock_bridge.in_clk" />
  <connection kind="clock" version="15.1" start="clk_0.clk" end="nios2_cpu.clk" />
  <connection kind="clock" version="15.1" start="clk_0.clk" end="jtag_uart.clk" />
  <connection kind="clock" version="15.1" start="clk_0.clk" end="sysid_qsys.clk" />
@@ -740,6 +772,13 @@
    start="clk_0.clk"
    end="altpll_0.inclk_interface" />
  <connection kind="clock" version="15.1" start="clk_0.clk" end="audio_pll.ref_clk" />
+ <connection
+   kind="interrupt"
+   version="15.1"
+   start="nios2_cpu.irq"
+   end="audio.interrupt">
+  <parameter name="irqNumber" value="1" />
+ </connection>
  <connection
    kind="interrupt"
    version="15.1"
@@ -776,31 +815,6 @@
    kind="reset"
    version="15.1"
    start="clk_0.clk_reset"
-   end="onchip_memory2.reset1" />
- <connection
-   kind="reset"
-   version="15.1"
-   start="nios2_cpu.debug_reset_request"
-   end="jtag_uart.reset" />
- <connection
-   kind="reset"
-   version="15.1"
-   start="nios2_cpu.debug_reset_request"
-   end="sysid_qsys.reset" />
- <connection
-   kind="reset"
-   version="15.1"
-   start="nios2_cpu.debug_reset_request"
-   end="audio.reset" />
- <connection
-   kind="reset"
-   version="15.1"
-   start="nios2_cpu.debug_reset_request"
-   end="audio_and_video_config.reset" />
- <connection
-   kind="reset"
-   version="15.1"
-   start="nios2_cpu.debug_reset_request"
    end="onchip_memory2.reset1" />
  <connection
    kind="reset"

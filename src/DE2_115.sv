@@ -135,10 +135,36 @@ module DE2_115(
 	output [16:0] HSMC_TX_D_P,
 	inout [6:0] EX_IO
 );
+  // logic dt, ck;
     Core (
 		.audio_and_video_config_external_interface_SDAT(I2C_SDAT), // audio_and_video_config_external_interface.SDAT
 		.audio_and_video_config_external_interface_SCLK(I2C_SCLK), //                                          .SCLK
+    .audio_external_interface_ADCLRCK(AUD_ADCLRCK),               //                                          .ADCLRCK
+    .audio_external_interface_ADCDAT(AUD_ADCDAT),                //                  audio_external_interface.ADCDAT
+    .audio_external_interface_BCLK(AUD_BCLK),                  //                                          .BCLK
+    .audio_external_interface_DACDAT(AUD_DACDAT),                //                                          .DACDAT
+    .audio_external_interface_DACLRCK(AUD_DACLRCK),               //     
+		.clock_bridge_out_clk_clk(AUD_XCK),                       //                      clock_bridge_out_clk.clk
+
 		.clk_clk(CLOCK_50),                                        //                                       clk.clk
 		.reset_reset_n(KEY[0])                               //                                     reset.reset_n
 	);
+  // logic [10:0] cnt;
+  // logic z;
+  // assign LEDR[0] = z;
+  // assign UART_TXD = z;
+  // assign LEDG[0] = AUD_DACLRCK;
+  // assign AUD_DACDAT = dt;
+  // always_ff @(posedge AUD_BCLK) begin
+    // if (AUD_DACLRCK) begin
+      // if (cnt < 1) begin
+        // cnt <= cnt + 1;
+      // end else if(cnt == 1) begin
+        // z <= dt;
+        // cnt <= cnt + 1;
+      // end
+    // end else begin
+      // cnt <= 0;
+    // end
+  // end
 endmodule
