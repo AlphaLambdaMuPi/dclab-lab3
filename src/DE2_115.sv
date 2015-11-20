@@ -136,6 +136,11 @@ module DE2_115(
 	inout [6:0] EX_IO
 );
   // logic dt, ck;
+  // logic _VGA_R, _VGA_G, _VGA_B;
+  // logic _VGA_BLANK, _VGA_SYNC, _SRAM_DQ;
+  // assign VGA_BLANK_N = _VGA_BLANK;
+  assign GPIO[33] = 1;
+ // assign VGA_SYNC_N = ~_VGA_SYNC;
     Core (
 		.audio_and_video_config_external_interface_SDAT(I2C_SDAT), // audio_and_video_config_external_interface.SDAT
 		.audio_and_video_config_external_interface_SCLK(I2C_SCLK), //                                          .SCLK
@@ -146,9 +151,58 @@ module DE2_115(
     .audio_external_interface_DACLRCK(AUD_DACLRCK),               //     
 		.clock_bridge_out_clk_clk(AUD_XCK),                       //                      clock_bridge_out_clk.clk
 
+
+		.sdram_controller_wire_addr(DRAM_ADDR),                     //                     sdram_controller_wire.addr
+		.sdram_controller_wire_ba(DRAM_BA),                       //                                          .ba
+		.sdram_controller_wire_cas_n(DRAM_CAS_N),                    //                                          .cas_n
+		.sdram_controller_wire_cke(DRAM_CKE),                      //                                          .cke
+		.sdram_controller_wire_cs_n(DRAM_CS_N),                     //                                          .cs_n
+		.sdram_controller_wire_dq(DRAM_DQ),                       //                                          .dq
+		.sdram_controller_wire_dqm(DRAM_DQM),                      //                                          .dqm
+		.sdram_controller_wire_ras_n(DRAM_RAS_N),                    //                                          .ras_n
+		.sdram_controller_wire_we_n(DRAM_WE_N), 
+		.sys_sdram_pll_sdram_clk_clk(DRAM_CLK),   		//                                          .we_n
+
 		.clk_clk(CLOCK_50),                                        //                                       clk.clk
-		.reset_reset_n(KEY[0])                               //                                     reset.reset_n
+		.reset_reset_n(KEY[0]),                               //                                     reset.reset_n
+
+    // LTM
+    .video_vga_controller_external_interface_CLK(GPIO[9]),     //   video_vga_controller_external_interface.CLK
+    .video_vga_controller_external_interface_HS(GPIO[11]),      //                                          .HS
+    .video_vga_controller_external_interface_VS(GPIO[12]),      //                                          .VS
+    .video_vga_controller_external_interface_DATA_EN(GPIO[10]), //                                          .DATA_EN
+    .video_vga_controller_external_interface_R(GPIO[32:25]),       //                                          .R
+    .video_vga_controller_external_interface_G(GPIO[24:17]),       //                                          .G
+    .video_vga_controller_external_interface_B({GPIO[16:13], GPIO[5], GPIO[6], GPIO[7], GPIO[8]}),     //                                          .B
+
+    // MTL
+    // .video_vga_controller_external_interface_CLK(GPIO[1]),     //   video_vga_controller_external_interface.CLK
+    // .video_vga_controller_external_interface_HS(GPIO[30]),      //                                          .HS
+    // .video_vga_controller_external_interface_VS(GPIO[31]),      //                                          .VS
+    // // .video_vga_controller_external_interface_DATA_EN(GPIO[10]), //                                          .DATA_EN
+    // .video_vga_controller_external_interface_R(GPIO[10:3]),       //                                          .R
+    // .video_vga_controller_external_interface_G({GPIO[21], GPIO[19:18], GPIO[15:11]}),       //                                          .G
+    // .video_vga_controller_external_interface_B({GPIO[28:22], GPIO[20]})     //                                          .B
+
+    // .video_vga_controller_external_interface_CLK(VGA_CLK),     //   video_vga_controller_external_interface.CLK
+    // .video_vga_controller_external_interface_HS(VGA_HS),      //                                          .HS
+    // .video_vga_controller_external_interface_VS(VGA_VS),      //                                          .VS
+    // .video_vga_controller_external_interface_BLANK(_VGA_BLANK),   //                                          .BLANK
+    // .video_vga_controller_external_interface_SYNC(_VGA_SYNC),    //                                          .SYNC
+    // .video_vga_controller_external_interface_R(VGA_R),       //                                          .R
+    // .video_vga_controller_external_interface_G(VGA_G),       //                                          .G
+    // .video_vga_controller_external_interface_B(VGA_B),     //                                          .B
+
+    .sram_external_interface_DQ(SRAM_DQ),                     //                   sram_external_interface.DQ
+    .sram_external_interface_ADDR(SRAM_ADDR),                   //                                          .ADDR
+    .sram_external_interface_LB_N(SRAM_LB_N),                   //                                          .LB_N
+    .sram_external_interface_UB_N(SRAM_UB_N),                   //                                          .UB_N
+    .sram_external_interface_CE_N(SRAM_CE_N),                   //                                          .CE_N
+    .sram_external_interface_OE_N(SRAM_OE_N),                   //                                          .OE_N
+    .sram_external_interface_WE_N(SRAM_WE_N)                   //                                          .WE_N
 	);
+  // assign VGA_B = 8'd255;
+  // assign _SRAM_DQ = 16'b0000011111100000;
   // logic [10:0] cnt;
   // logic z;
   // assign LEDR[0] = z;

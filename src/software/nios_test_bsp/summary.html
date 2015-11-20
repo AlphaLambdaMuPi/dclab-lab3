@@ -22,10 +22,10 @@
 <td width="20%" bgcolor="#77BBFF">BSP Version:</td><td>default</td>
 </tr>
 <tr mode="wrap">
-<td width="20%" bgcolor="#77BBFF">BSP Generated On:</td><td>Nov 18, 2015 8:50:51 PM</td>
+<td width="20%" bgcolor="#77BBFF">BSP Generated On:</td><td>Nov 20, 2015 5:35:33 PM</td>
 </tr>
 <tr mode="wrap">
-<td width="20%" bgcolor="#77BBFF">BSP Generated Timestamp:</td><td>1447851051174</td>
+<td width="20%" bgcolor="#77BBFF">BSP Generated Timestamp:</td><td>1448012133303</td>
 </tr>
 <tr mode="wrap">
 <td width="20%" bgcolor="#77BBFF">BSP Generated Location:</td><td>./</td>
@@ -38,19 +38,28 @@
 <th align="left" width="20%">Slave Descriptor</th><th align="left" width="40%">Address Range</th><th align="left" width="20%">Size</th><th align="left" width="20%">Attributes</th>
 </tr>
 <tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
-<td>jtag_uart</td><td>0x00041028 - 0x0004102F</td><td>8</td><td class="listing">printable</td>
+<td>jtag_uart</td><td>0x10241038 - 0x1024103F</td><td>8</td><td class="listing">printable</td>
 </tr>
 <tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
-<td>sysid_qsys</td><td>0x00041020 - 0x00041027</td><td>8</td><td class="listing">&nbsp;</td>
+<td>sysid_qsys</td><td>0x10241030 - 0x10241037</td><td>8</td><td class="listing">&nbsp;</td>
 </tr>
 <tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
-<td>audio</td><td>0x00041010 - 0x0004101F</td><td>16</td><td class="listing">&nbsp;</td>
+<td>audio</td><td>0x10241020 - 0x1024102F</td><td>16</td><td class="listing">&nbsp;</td>
 </tr>
 <tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
-<td>audio_and_video_config</td><td>0x00041000 - 0x0004100F</td><td>16</td><td class="listing">&nbsp;</td>
+<td>audio_and_video_config</td><td>0x10241010 - 0x1024101F</td><td>16</td><td class="listing">&nbsp;</td>
 </tr>
 <tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
-<td>onchip_memory2</td><td>0x00020000 - 0x00038FFF</td><td>102400</td><td class="listing">memory</td>
+<td>video_pixel_buffer_dma</td><td>0x10241000 - 0x1024100F</td><td>16</td><td class="listing">&nbsp;</td>
+</tr>
+<tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
+<td>onchip_memory2</td><td>0x10220000 - 0x10238FFF</td><td>102400</td><td class="listing">memory</td>
+</tr>
+<tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
+<td>sram</td><td>0x10000000 - 0x101FFFFF</td><td>2097152</td><td class="listing">&nbsp;</td>
+</tr>
+<tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
+<td>sdram_controller</td><td>0x08000000 - 0x0FFFFFFF</td><td>134217728</td><td class="listing">memory</td>
 </tr>
 </table>
 <br>
@@ -59,6 +68,15 @@
 <table border="1" bgcolor="#FFFFCC" width="90%">
 <tr bgcolor="#77BBFF" mode="wrap">
 <th align="left" width="15%">Region</th><th align="left" width="40%">Address Range</th><th align="left" width="15%">Size</th><th align="left" width="15%">Memory</th><th align="left" width="15%">Offset</th>
+</tr>
+<tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
+<td>sdram_controller</td><td>0x08000020 - 0x0A363C7F</td><td>37108832</td><td>sdram_controller</td><td>32</td>
+</tr>
+<tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
+<td>reset</td><td>0x08000000 - 0x0800001F</td><td>32</td><td>sdram_controller</td><td>0</td>
+</tr>
+<tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
+<td>onchip_memory2</td><td>0x10220000 - 0x10238FFF</td><td>102400</td><td>onchip_memory2</td><td>0</td>
 </tr>
 </table>
 <br>
@@ -69,22 +87,22 @@
 <th align="left" width="50%">Section</th><th align="left" width="50%">Region</th>
 </tr>
 <tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
-<td>.text</td><td>onchip_memory2</td>
+<td>.text</td><td>sdram_controller</td>
 </tr>
 <tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
-<td>.rodata</td><td>onchip_memory2</td>
+<td>.rodata</td><td>sdram_controller</td>
 </tr>
 <tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
-<td>.rwdata</td><td>onchip_memory2</td>
+<td>.rwdata</td><td>sdram_controller</td>
 </tr>
 <tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
-<td>.bss</td><td>onchip_memory2</td>
+<td>.bss</td><td>sdram_controller</td>
 </tr>
 <tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
-<td>.heap</td><td>onchip_memory2</td>
+<td>.heap</td><td>sdram_controller</td>
 </tr>
 <tr mode="wrap" STYLE="display: 'block'; font-family: 'courier'; color: '#000000'; font-weight: '500'; font-size: '14'; margin-top: '10pt'; text-align: 'left'">
-<td>.stack</td><td>onchip_memory2</td>
+<td>.stack</td><td>sdram_controller</td>
 </tr>
 </table>
 <h3>Settings</h3>

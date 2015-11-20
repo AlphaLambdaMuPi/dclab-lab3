@@ -3,11 +3,14 @@
  <debug showDebugMenu="0" />
  <systemtable filter="All Interfaces">
   <columns>
-   <connections preferredWidth="191" />
+   <connections preferredWidth="303" />
    <irq preferredWidth="34" />
-   <name preferredWidth="228" />
+   <name preferredWidth="270" />
+   <export preferredWidth="211" />
+   <inputclock preferredWidth="201" />
   </columns>
  </systemtable>
- <library expandedCategories="Library,Project" />
+ <library
+   expandedCategories="Library/Basic Functions/Simulation; Debug and Verification,Library/Basic Functions,Library/DSP,Library/University Program/Audio &amp; Video/Video,Library,Project,Library/University Program/Audio &amp; Video,Library/Basic Functions/Simulation; Debug and Verification/Verification,Library/University Program,Library/DSP/Video and Image Processing" />
  <window width="1920" height="1053" x="0" y="27" />
 </preferences>

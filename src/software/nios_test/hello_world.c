@@ -17,13 +17,47 @@
 #include <stdio.h>
 #include "altera_up_avalon_audio_and_video_config.h"
 #include "altera_up_avalon_audio.h"
+#include "altera_up_avalon_video_pixel_buffer_dma.h"
+#include <stdlib.h>
+#include <io.h>
 
-char buff[48000];
 int bid;
 
+void sleep_ms(int milisec)
+{
+  int i;
+  int k;
+  for (i = 0; i < milisec; i++) {
+    for (k = 0; k < 2500; k++) {
+      __asm("nop");
+    }
+  }
+}
+
+int next_color(int color) {
+  int bms = 31;
+  int gms = 31 << 6;
+  int rms = gms << 5;
+  int r = color & rms, g = color & gms, b = color & bms;
+  /* if ((color & bms) { */
+    /* color --; */
+    /* color += 1<<6; */
+  /* } else if (color & gms) { */
+    /* color -= 1<<6; */
+    /* color += 1<<11; */
+  /* } else { */
+    /* color -= 1<<11; */
+    /* color ++; */
+  /* } */
+  return color;
+}
+ 
+
+char buff[420000];
 int main()
 {
-  printf("Hello from Nios 123!\n");
+  printf("Hello from Nios 234568!\n\n");
+
   /* alt_up_av_config_dev* a = alt_up_av_config_open_dev("/dev/audio_and_video_config"); */
   /* printf("%d\n", alt_up_av_config_reset(a)); */
   /* int res; */
@@ -34,15 +68,50 @@ int main()
   //res = alt_up_av_config_write_audio_cfg_register(a, 7, (1<<6)+1);
   /* res = alt_up_av_config_write_audio_cfg_register(a, 8, 0); */
 
+  alt_up_pixel_buffer_dma_dev *buf = alt_up_pixel_buffer_dma_open_dev("/dev/video_pixel_buffer_dma");
+  alt_up_pixel_buffer_dma_clear_screen(buf, 0);
+  printf("%d\n", buf->x_resolution);
+
+  /* int hao123 = 123; */
+  /* while (1) { */
+    /* int i, j; */
+    /* for (i=0; i<480; i++) { */
+      /* for (j=0; j<800; j++) { */
+        /* hao123 = hao123 * 123 + 123; */
+       /* alt_up_pixel_buffer_dma_draw_box(buf, j*1, i*1, j*1+1, i*1+1, 123, 1); */
+      /* } */
+    /* } */
+    /* printf("Hao %d\n", hao123); */
+  /* } */
+  /* return 0; */
+
+ /* int x = 0, hx = 200, y = 0; */
+ /* int color = 31; */
+ /* alt_up_pixel_buffer_dma_draw_box(buf, x, 0, x+200, 200, 31, 1); */
+ /* while (1) { */
+   /* alt_up_pixel_buffer_dma_draw_line(buf, x, 0, x, 200, 0, 1); */
+   /* x += 1; */
+   /* hx += 1; */
+   /* if (x >= 800) x = 0; */
+   /* if (hx >= 800) hx = 0; */
+   /* sleep_ms(1000); */
+   /* color = next_color(color); */
+   /* alt_up_pixel_buffer_dma_draw_line(buf, hx, 0, hx, 200, color, 1); */
+ /* } */
+
+
+  /* return 0; */
+
   alt_up_audio_dev *audio_dev;
   /* used for audio record/playback */
   unsigned int l_buf;
   unsigned int r_buf;
+
   // open the Audio port
   audio_dev = alt_up_audio_open_dev ("/dev/audio");
   if ( audio_dev == NULL)
     alt_printf ("Error: could not open audio device \n");
-    else
+  else
     alt_printf ("Opened audio device \n");
     /* read and echo audio data */
   alt_up_audio_reset_audio_core(audio_dev);
@@ -69,7 +138,7 @@ int main()
         alt_up_audio_write_fifo (audio_dev, &(r_buf), 1, ALT_UP_AUDIO_RIGHT);
         alt_up_audio_write_fifo (audio_dev, &(l_buf), 1, ALT_UP_AUDIO_LEFT);
         buff[bid++] = l_buf >> 8;
-        if (bid == 40000){
+        if (bid == 400000){
           readmode = 0;
           bid = 0;
         }
@@ -89,12 +158,11 @@ int main()
         alt_up_audio_write_fifo (audio_dev, &(r_buf), 1, ALT_UP_AUDIO_RIGHT);
         alt_up_audio_write_fifo (audio_dev, &(l_buf), 1, ALT_UP_AUDIO_LEFT);
         bid ++;
-        if (bid == 40000) {
+        if (bid == 400000) {
           readmode = 1;
           bid = 0;
         }
       }
     }
   }
-
 }
