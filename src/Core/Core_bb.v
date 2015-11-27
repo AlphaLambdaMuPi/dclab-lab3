@@ -9,6 +9,7 @@ module Core (
 	audio_external_interface_DACLRCK,
 	clk_clk,
 	clock_bridge_out_clk_clk,
+	pio_touch_external_connection_export,
 	reset_reset_n,
 	sdram_controller_wire_addr,
 	sdram_controller_wire_ba,
@@ -19,6 +20,10 @@ module Core (
 	sdram_controller_wire_dqm,
 	sdram_controller_wire_ras_n,
 	sdram_controller_wire_we_n,
+	spi_touch_external_MISO,
+	spi_touch_external_MOSI,
+	spi_touch_external_SCLK,
+	spi_touch_external_SS_n,
 	sram_external_interface_DQ,
 	sram_external_interface_ADDR,
 	sram_external_interface_LB_N,
@@ -46,6 +51,7 @@ module Core (
 	input		audio_external_interface_DACLRCK;
 	input		clk_clk;
 	output		clock_bridge_out_clk_clk;
+	input		pio_touch_external_connection_export;
 	input		reset_reset_n;
 	output	[12:0]	sdram_controller_wire_addr;
 	output	[1:0]	sdram_controller_wire_ba;
@@ -56,6 +62,10 @@ module Core (
 	output	[3:0]	sdram_controller_wire_dqm;
 	output		sdram_controller_wire_ras_n;
 	output		sdram_controller_wire_we_n;
+	input		spi_touch_external_MISO;
+	output		spi_touch_external_MOSI;
+	output		spi_touch_external_SCLK;
+	output		spi_touch_external_SS_n;
 	inout	[15:0]	sram_external_interface_DQ;
 	output	[19:0]	sram_external_interface_ADDR;
 	output		sram_external_interface_LB_N;

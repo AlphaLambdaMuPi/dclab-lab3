@@ -1,4 +1,4 @@
 eclipse.preferences.version=1
-newSoftwareExampleWizardPage.defaultLocation=/home/alpha/Documents/dclab-labhao123/src/software/nios_test
-newSoftwareExampleWizardPage.sopcinfoFile=/home/alpha/Documents/dclab-labhao123/src/Core.sopcinfo
-newSoftwareExampleWizardPage2.newBspLocation=/home/alpha/Documents/dclab-labhao123/src/software/nios_test_bsp
+newSoftwareExampleWizardPage.defaultLocation=/home/alpha/Documents/dclab-lab3/src/software/recorder_nios
+newSoftwareExampleWizardPage.sopcinfoFile=/home/alpha/Documents/dclab-lab3/src/Core.sopcinfo
+newSoftwareExampleWizardPage2.newBspLocation=/home/alpha/Documents/dclab-lab3/src/software/recorder_nios_bsp

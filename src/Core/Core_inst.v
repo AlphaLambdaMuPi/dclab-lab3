@@ -8,6 +8,7 @@
 		.audio_external_interface_DACLRCK                (<connected-to-audio_external_interface_DACLRCK>),                //                                          .DACLRCK
 		.clk_clk                                         (<connected-to-clk_clk>),                                         //                                       clk.clk
 		.clock_bridge_out_clk_clk                        (<connected-to-clock_bridge_out_clk_clk>),                        //                      clock_bridge_out_clk.clk
+		.pio_touch_external_connection_export            (<connected-to-pio_touch_external_connection_export>),            //             pio_touch_external_connection.export
 		.reset_reset_n                                   (<connected-to-reset_reset_n>),                                   //                                     reset.reset_n
 		.sdram_controller_wire_addr                      (<connected-to-sdram_controller_wire_addr>),                      //                     sdram_controller_wire.addr
 		.sdram_controller_wire_ba                        (<connected-to-sdram_controller_wire_ba>),                        //                                          .ba
@@ -18,6 +19,10 @@
 		.sdram_controller_wire_dqm                       (<connected-to-sdram_controller_wire_dqm>),                       //                                          .dqm
 		.sdram_controller_wire_ras_n                     (<connected-to-sdram_controller_wire_ras_n>),                     //                                          .ras_n
 		.sdram_controller_wire_we_n                      (<connected-to-sdram_controller_wire_we_n>),                      //                                          .we_n
+		.spi_touch_external_MISO                         (<connected-to-spi_touch_external_MISO>),                         //                        spi_touch_external.MISO
+		.spi_touch_external_MOSI                         (<connected-to-spi_touch_external_MOSI>),                         //                                          .MOSI
+		.spi_touch_external_SCLK                         (<connected-to-spi_touch_external_SCLK>),                         //                                          .SCLK
+		.spi_touch_external_SS_n                         (<connected-to-spi_touch_external_SS_n>),                         //                                          .SS_n
 		.sram_external_interface_DQ                      (<connected-to-sram_external_interface_DQ>),                      //                   sram_external_interface.DQ
 		.sram_external_interface_ADDR                    (<connected-to-sram_external_interface_ADDR>),                    //                                          .ADDR
 		.sram_external_interface_LB_N                    (<connected-to-sram_external_interface_LB_N>),                    //                                          .LB_N

@@ -3,7 +3,7 @@
  <debug showDebugMenu="0" />
  <systemtable filter="All Interfaces">
   <columns>
-   <connections preferredWidth="303" />
+   <connections preferredWidth="319" />
    <irq preferredWidth="34" />
    <name preferredWidth="270" />
    <export preferredWidth="211" />
@@ -11,6 +11,6 @@
   </columns>
  </systemtable>
  <library
-   expandedCategories="Library/Basic Functions/Simulation; Debug and Verification,Library/Basic Functions,Library/DSP,Library/University Program/Audio &amp; Video/Video,Library,Project,Library/University Program/Audio &amp; Video,Library/Basic Functions/Simulation; Debug and Verification/Verification,Library/University Program,Library/DSP/Video and Image Processing" />
+   expandedCategories="Library/Basic Functions/Clocks; PLLs and Resets,Library/Interface Protocols/PCI Express/QSYS Example Designs,Library/University Program,Library/Basic Functions/Bridges and Adaptors,Library/Basic Functions/Bridges and Adaptors/Reset,Library/Basic Functions/Simulation; Debug and Verification/Simulation,Library/University Program/Audio &amp; Video,Library/Basic Functions,Library/University Program/Audio &amp; Video/Video,Library/Interface Protocols/Transceiver PHY,Library/Interface Protocols/PCI Express/Example Design Components,Library/DSP,Project,Library/Qsys Interconnect,Library/Basic Functions/Simulation; Debug and Verification,Library/Qsys Interconnect/Memory-Mapped,Library/Basic Functions/Bridges and Adaptors/Memory Mapped,Library/Interface Protocols/PCI Express,Library/DSP/Video and Image Processing,Library/Interface Protocols,Library" />
  <window width="1920" height="1053" x="0" y="27" />
 </preferences>

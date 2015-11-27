@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Nov 20, 2015 5:35:33 PM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1448012133303</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>Nov 25, 2015 5:37:14 PM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1448444234958</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>./</BspGeneratedLocation>
         <BspSettingsFile>../nios_test_bsp/settings.bsp</BspSettingsFile>
         <SopcDesignFile>../../Core.sopcinfo</SopcDesignFile>
@@ -929,32 +929,50 @@
                 <attributes>memory</attributes>
         </MemoryMap>
         <MemoryMap>
+                <slaveDescriptor>spi_touch</slaveDescriptor>
+                <addressRange>0x10247000 - 0x1024701F</addressRange>
+                <addressSpan>32</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>timer</slaveDescriptor>
+                <addressRange>0x10247020 - 0x1024703F</addressRange>
+                <addressSpan>32</addressSpan>
+                <attributes>timer</attributes>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>pio_touch</slaveDescriptor>
+                <addressRange>0x10247040 - 0x1024704F</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
                 <slaveDescriptor>video_pixel_buffer_dma</slaveDescriptor>
-                <addressRange>0x10241000 - 0x1024100F</addressRange>
+                <addressRange>0x10247050 - 0x1024705F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>audio_and_video_config</slaveDescriptor>
-                <addressRange>0x10241010 - 0x1024101F</addressRange>
+                <addressRange>0x10247060 - 0x1024706F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>audio</slaveDescriptor>
-                <addressRange>0x10241020 - 0x1024102F</addressRange>
+                <addressRange>0x10247070 - 0x1024707F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>sysid_qsys</slaveDescriptor>
-                <addressRange>0x10241030 - 0x10241037</addressRange>
+                <addressRange>0x10247080 - 0x10247087</addressRange>
                 <addressSpan>8</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>jtag_uart</slaveDescriptor>
-                <addressRange>0x10241038 - 0x1024103F</addressRange>
+                <addressRange>0x10247088 - 0x1024708F</addressRange>
                 <addressSpan>8</addressSpan>
                 <attributes>printable</attributes>
         </MemoryMap>

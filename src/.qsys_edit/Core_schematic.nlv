@@ -1,50 +1,55 @@
 # # File gsaved with Nlview version 6.3.8  2013-12-19 bk=1.2992 VDI=34 GEI=35
 # 
-preplace inst Core.jtag_uart -pg 1 -lvl 6 -y 370
+preplace inst Core.jtag_uart -pg 1 -lvl 7 -y 600
 preplace inst Core.audio_pll.reset_from_locked -pg 1
-preplace inst Core.nios2_cpu -pg 1 -lvl 4 -y 290
-preplace inst Core.audio_and_video_config -pg 1 -lvl 6 -y 30
+preplace inst Core.nios2_cpu -pg 1 -lvl 4 -y 540
+preplace inst Core.audio_and_video_config -pg 1 -lvl 7 -y 240
 preplace inst Core.sys_sdram_pll.sys_pll -pg 1
 preplace inst Core.nios2_cpu.reset_bridge -pg 1
-preplace inst Core.sys_sdram_pll -pg 1 -lvl 3 -y 400
-preplace inst Core.audio -pg 1 -lvl 6 -y 230
-preplace inst Core.onchip_memory2 -pg 1 -lvl 6 -y 470
-preplace inst Core.clock_bridge -pg 1 -lvl 6 -y 630
+preplace inst Core.video_rgb_resampler_0 -pg 1 -lvl 5 -y 440
+preplace inst Core.sys_sdram_pll -pg 1 -lvl 3 -y 690
+preplace inst Core.audio -pg 1 -lvl 7 -y 460
+preplace inst Core.onchip_memory2 -pg 1 -lvl 7 -y 700
+preplace inst Core.clock_bridge -pg 1 -lvl 7 -y 860
 preplace inst Core -pg 1 -lvl 1 -y 40 -regy -20
-preplace inst Core.video_vga_controller -pg 1 -lvl 6 -y 130
-preplace inst Core.video_pll -pg 1 -lvl 3 -y 540
-preplace inst Core.video_dual_clock_buffer -pg 1 -lvl 5 -y 250
+preplace inst Core.video_vga_controller -pg 1 -lvl 7 -y 360
+preplace inst Core.timer -pg 1 -lvl 5 -y 300
+preplace inst Core.video_pll -pg 1 -lvl 3 -y 810
+preplace inst Core.video_dual_clock_buffer -pg 1 -lvl 6 -y 360
 preplace inst Core.sys_sdram_pll.reset_from_locked -pg 1
-preplace inst Core.sram -pg 1 -lvl 5 -y 740
+preplace inst Core.pio_touch -pg 1 -lvl 5 -y 160
+preplace inst Core.sram -pg 1 -lvl 6 -y 970
 preplace inst Core.nios2_cpu.cpu -pg 1
 preplace inst Core.nios2_cpu.clock_bridge -pg 1
 preplace inst Core.video_pll.reset_from_locked -pg 1
-preplace inst Core.video_pixel_buffer_dma -pg 1 -lvl 4 -y 600
+preplace inst Core.video_pixel_buffer_dma -pg 1 -lvl 4 -y 830
 preplace inst Core.audio_pll.audio_pll -pg 1
 preplace inst Core.video_pll.video_pll -pg 1
-preplace inst Core.sysid_qsys -pg 1 -lvl 6 -y 550
-preplace inst Core.sdram_controller -pg 1 -lvl 4 -y 140
-preplace inst Core.clk_0 -pg 1 -lvl 1 -y 280
-preplace inst Core.audio_pll -pg 1 -lvl 4 -y 50
-preplace netloc POINT_TO_POINT<net_container>Core</net_container>(MASTER)video_pixel_buffer_dma.avalon_pixel_source,(SLAVE)video_dual_clock_buffer.avalon_dc_buffer_sink) 1 4 1 1800
-preplace netloc EXPORT<net_container>Core</net_container>(SLAVE)sdram_controller.wire,(SLAVE)Core.sdram_controller_wire) 1 0 4 NJ 210 NJ 210 NJ 210 NJ
-preplace netloc FAN_OUT<net_container>Core</net_container>(SLAVE)video_vga_controller.reset,(MASTER)video_pll.reset_source,(SLAVE)video_dual_clock_buffer.reset_stream_out) 1 3 3 NJ 690 1820 560 2190
-preplace netloc POINT_TO_POINT<net_container>Core</net_container>(SLAVE)video_vga_controller.avalon_vga_sink,(MASTER)video_dual_clock_buffer.avalon_dc_buffer_source) 1 5 1 2150
-preplace netloc EXPORT<net_container>Core</net_container>(SLAVE)sram.external_interface,(SLAVE)Core.sram_external_interface) 1 0 5 NJ 790 NJ 790 NJ 790 NJ 790 NJ
-preplace netloc EXPORT<net_container>Core</net_container>(SLAVE)Core.audio_and_video_config_external_interface,(SLAVE)audio_and_video_config.external_interface) 1 0 6 NJ 160 NJ 160 NJ 160 NJ 130 NJ 80 NJ
-preplace netloc FAN_OUT<net_container>Core</net_container>(MASTER)sys_sdram_pll.sys_clk,(SLAVE)video_pixel_buffer_dma.clk,(SLAVE)sdram_controller.clk,(SLAVE)nios2_cpu.clk,(SLAVE)sram.clk,(SLAVE)video_dual_clock_buffer.clock_stream_in,(SLAVE)onchip_memory2.clk1,(SLAVE)sysid_qsys.clk,(SLAVE)jtag_uart.clk) 1 3 3 1210 710 1840 500 2310
-preplace netloc FAN_OUT<net_container>Core</net_container>(MASTER)clk_0.clk,(SLAVE)audio_pll.ref_clk,(SLAVE)video_pll.ref_clk,(SLAVE)sys_sdram_pll.ref_clk) 1 1 3 NJ 290 610 60 NJ
-preplace netloc EXPORT<net_container>Core</net_container>(SLAVE)Core.reset,(SLAVE)clk_0.clk_in_reset) 1 0 1 NJ
-preplace netloc FAN_OUT<net_container>Core</net_container>(MASTER)nios2_cpu.irq,(SLAVE)audio.interrupt,(SLAVE)jtag_uart.irq) 1 4 2 N 380 2250
-preplace netloc INTERCONNECT<net_container>Core</net_container>(SLAVE)sdram_controller.s1,(MASTER)nios2_cpu.data_master,(SLAVE)audio_and_video_config.avalon_av_config_slave,(SLAVE)jtag_uart.avalon_jtag_slave,(MASTER)nios2_cpu.instruction_master,(SLAVE)video_pixel_buffer_dma.avalon_control_slave,(SLAVE)onchip_memory2.s1,(SLAVE)nios2_cpu.debug_mem_slave,(SLAVE)audio.avalon_audio_slave,(SLAVE)sysid_qsys.control_slave) 1 3 3 1230 250 1680 220 2290
-preplace netloc POINT_TO_POINT<net_container>Core</net_container>(SLAVE)sram.avalon_sram_slave,(MASTER)video_pixel_buffer_dma.avalon_pixel_dma_master) 1 4 1 1780
-preplace netloc EXPORT<net_container>Core</net_container>(MASTER)clock_bridge.out_clk,(MASTER)Core.clock_bridge_out_clk) 1 6 1 NJ
-preplace netloc FAN_OUT<net_container>Core</net_container>(MASTER)video_pll.vga_clk,(SLAVE)video_vga_controller.clk,(SLAVE)video_dual_clock_buffer.clock_stream_out) 1 3 3 NJ 590 1700 240 2210
-preplace netloc FAN_OUT<net_container>Core</net_container>(SLAVE)audio.clk,(SLAVE)audio_and_video_config.clk,(MASTER)audio_pll.audio_clk,(SLAVE)clock_bridge.in_clk) 1 4 2 NJ 60 2230
-preplace netloc INTERCONNECT<net_container>Core</net_container>(MASTER)clk_0.clk_reset,(SLAVE)sysid_qsys.reset,(MASTER)audio_pll.reset_source,(SLAVE)jtag_uart.reset,(SLAVE)onchip_memory2.reset1,(SLAVE)audio_pll.ref_reset,(MASTER)nios2_cpu.debug_reset_request,(SLAVE)video_dual_clock_buffer.reset_stream_in,(SLAVE)audio.reset,(MASTER)sys_sdram_pll.reset_source,(SLAVE)audio_and_video_config.reset,(SLAVE)sram.reset,(SLAVE)sdram_controller.reset,(SLAVE)nios2_cpu.reset,(SLAVE)video_pll.ref_reset,(SLAVE)sys_sdram_pll.ref_reset,(SLAVE)video_pixel_buffer_dma.reset) 1 1 5 NJ 310 590 500 1170 730 1720 540 2330
-preplace netloc EXPORT<net_container>Core</net_container>(MASTER)Core.sys_sdram_pll_sdram_clk,(MASTER)sys_sdram_pll.sdram_clk) 1 3 4 NJ 430 NJ 200 NJ 360 NJ
-preplace netloc EXPORT<net_container>Core</net_container>(SLAVE)audio.external_interface,(SLAVE)Core.audio_external_interface) 1 0 6 NJ 770 NJ 770 NJ 770 NJ 770 NJ 520 NJ
-preplace netloc EXPORT<net_container>Core</net_container>(SLAVE)video_vga_controller.external_interface,(SLAVE)Core.video_vga_controller_external_interface) 1 0 6 NJ 750 NJ 750 NJ 750 NJ 750 NJ 480 NJ
+preplace inst Core.spi_touch -pg 1 -lvl 5 -y 40
+preplace inst Core.sysid_qsys -pg 1 -lvl 7 -y 780
+preplace inst Core.sdram_controller -pg 1 -lvl 4 -y 390
+preplace inst Core.clk_0 -pg 1 -lvl 1 -y 510
+preplace inst Core.audio_pll -pg 1 -lvl 4 -y 220
+preplace netloc EXPORT<net_container>Core</net_container>(SLAVE)Core.audio_external_interface,(SLAVE)audio.external_interface) 1 0 7 NJ 500 NJ 500 NJ 500 NJ 500 NJ 550 NJ 350 NJ
+preplace netloc INTERCONNECT<net_container>Core</net_container>(SLAVE)nios2_cpu.reset,(SLAVE)video_dual_clock_buffer.reset_stream_in,(MASTER)audio_pll.reset_source,(SLAVE)video_pixel_buffer_dma.reset,(SLAVE)spi_touch.reset,(SLAVE)video_vga_controller.reset,(MASTER)nios2_cpu.debug_reset_request,(SLAVE)jtag_uart.reset,(MASTER)video_pll.reset_source,(SLAVE)video_rgb_resampler_0.reset,(SLAVE)video_dual_clock_buffer.reset_stream_out,(SLAVE)sdram_controller.reset,(SLAVE)audio.reset,(MASTER)sys_sdram_pll.reset_source,(SLAVE)timer.reset,(SLAVE)audio_pll.ref_reset,(SLAVE)sysid_qsys.reset,(MASTER)clk_0.clk_reset,(SLAVE)sys_sdram_pll.ref_reset,(SLAVE)video_pll.ref_reset,(SLAVE)pio_touch.reset,(SLAVE)onchip_memory2.reset1,(SLAVE)sram.reset,(SLAVE)audio_and_video_config.reset) 1 1 6 NJ 540 590 630 1170 700 1760 590 2200 490 2690
+preplace netloc FAN_OUT<net_container>Core</net_container>(SLAVE)sdram_controller.clk,(SLAVE)timer.clk,(SLAVE)onchip_memory2.clk1,(SLAVE)pio_touch.clk,(SLAVE)sysid_qsys.clk,(SLAVE)video_pixel_buffer_dma.clk,(SLAVE)sram.clk,(SLAVE)nios2_cpu.clk,(SLAVE)spi_touch.clk,(SLAVE)video_rgb_resampler_0.clk,(SLAVE)jtag_uart.clk,(MASTER)sys_sdram_pll.sys_clk,(SLAVE)video_dual_clock_buffer.clock_stream_in) 1 3 4 1210 360 1740 410 2120 630 2730
+preplace netloc FAN_OUT<net_container>Core</net_container>(MASTER)clk_0.clk,(SLAVE)video_pll.ref_clk,(SLAVE)sys_sdram_pll.ref_clk,(SLAVE)audio_pll.ref_clk) 1 1 3 NJ 520 610 520 1150
+preplace netloc FAN_OUT<net_container>Core</net_container>(SLAVE)audio.interrupt,(MASTER)nios2_cpu.irq,(SLAVE)pio_touch.irq,(SLAVE)jtag_uart.irq,(SLAVE)timer.irq) 1 4 3 1860 630 NJ 570 2770
+preplace netloc POINT_TO_POINT<net_container>Core</net_container>(SLAVE)video_vga_controller.avalon_vga_sink,(MASTER)video_dual_clock_buffer.avalon_dc_buffer_source) 1 6 1 2650
+preplace netloc EXPORT<net_container>Core</net_container>(SLAVE)sram.external_interface,(SLAVE)Core.sram_external_interface) 1 0 6 NJ 1020 NJ 1020 NJ 1020 NJ 1020 NJ 690 NJ
+preplace netloc EXPORT<net_container>Core</net_container>(SLAVE)pio_touch.external_connection,(SLAVE)Core.pio_touch_external_connection) 1 0 5 NJ 180 NJ 180 NJ 180 NJ 180 NJ
+preplace netloc EXPORT<net_container>Core</net_container>(SLAVE)Core.sdram_controller_wire,(SLAVE)sdram_controller.wire) 1 0 4 NJ 460 NJ 460 NJ 460 NJ
+preplace netloc FAN_OUT<net_container>Core</net_container>(SLAVE)audio_and_video_config.clk,(SLAVE)clock_bridge.in_clk,(MASTER)audio_pll.audio_clk,(SLAVE)audio.clk) 1 4 3 NJ 290 NJ 270 2710
+preplace netloc EXPORT<net_container>Core</net_container>(SLAVE)Core.video_vga_controller_external_interface,(SLAVE)video_vga_controller.external_interface) 1 0 7 NJ 300 NJ 300 NJ 300 NJ 300 NJ 430 NJ 310 NJ
+preplace netloc POINT_TO_POINT<net_container>Core</net_container>(MASTER)video_pixel_buffer_dma.avalon_pixel_source,(SLAVE)video_rgb_resampler_0.avalon_rgb_sink) 1 4 1 1840
+preplace netloc EXPORT<net_container>Core</net_container>(SLAVE)spi_touch.external,(SLAVE)Core.spi_touch_external) 1 0 5 NJ 340 NJ 340 NJ 340 NJ 340 NJ
+preplace netloc FAN_OUT<net_container>Core</net_container>(MASTER)video_pll.lcd_clk,(SLAVE)video_vga_controller.clk,(SLAVE)video_dual_clock_buffer.clock_stream_out) 1 3 4 1190 680 NJ 610 2140 330 NJ
+preplace netloc EXPORT<net_container>Core</net_container>(MASTER)clock_bridge.out_clk,(MASTER)Core.clock_bridge_out_clk) 1 7 1 NJ
+preplace netloc EXPORT<net_container>Core</net_container>(SLAVE)audio_and_video_config.external_interface,(SLAVE)Core.audio_and_video_config_external_interface) 1 0 7 NJ 320 NJ 320 NJ 320 NJ 320 NJ 30 NJ 290 NJ
+preplace netloc POINT_TO_POINT<net_container>Core</net_container>(SLAVE)video_dual_clock_buffer.avalon_dc_buffer_sink,(MASTER)video_rgb_resampler_0.avalon_rgb_source) 1 5 1 2180
+preplace netloc INTERCONNECT<net_container>Core</net_container>(SLAVE)timer.s1,(SLAVE)sdram_controller.s1,(SLAVE)sysid_qsys.control_slave,(SLAVE)audio.avalon_audio_slave,(SLAVE)spi_touch.spi_control_port,(MASTER)nios2_cpu.data_master,(SLAVE)nios2_cpu.debug_mem_slave,(MASTER)video_pixel_buffer_dma.avalon_pixel_dma_master,(SLAVE)jtag_uart.avalon_jtag_slave,(SLAVE)audio_and_video_config.avalon_av_config_slave,(SLAVE)sram.avalon_sram_slave,(SLAVE)onchip_memory2.s1,(SLAVE)pio_touch.s1,(SLAVE)video_pixel_buffer_dma.avalon_control_slave,(MASTER)nios2_cpu.instruction_master) 1 3 4 1230 380 1780 570 2180 610 2750
+preplace netloc EXPORT<net_container>Core</net_container>(MASTER)Core.sys_sdram_pll_sdram_clk,(MASTER)sys_sdram_pll.sdram_clk) 1 3 5 NJ 720 NJ 530 NJ 590 NJ 590 NJ
 preplace netloc EXPORT<net_container>Core</net_container>(SLAVE)clk_0.clk_in,(SLAVE)Core.clk) 1 0 1 NJ
-levelinfo -pg 1 0 200 2710
-levelinfo -hier Core 210 240 570 990 1350 1870 2370 2540
+preplace netloc EXPORT<net_container>Core</net_container>(SLAVE)clk_0.clk_in_reset,(SLAVE)Core.reset) 1 0 1 NJ
+levelinfo -pg 1 0 200 3150
+levelinfo -hier Core 210 240 570 990 1350 1930 2370 2810 2980

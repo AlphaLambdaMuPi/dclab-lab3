@@ -4,7 +4,7 @@
  * Machine generated for CPU 'nios2_cpu' in SOPC Builder design 'Core'
  * SOPC Builder design path: ../../Core.sopcinfo
  *
- * Generated: Fri Nov 20 17:35:33 CST 2015
+ * Generated: Wed Nov 25 17:37:15 CST 2015
  */
 
 /*
@@ -62,7 +62,7 @@
 
 #define ALT_CPU_ARCHITECTURE "altera_nios2_gen2"
 #define ALT_CPU_BIG_ENDIAN 0
-#define ALT_CPU_BREAK_ADDR 0x10240820
+#define ALT_CPU_BREAK_ADDR 0x10246820
 #define ALT_CPU_CPU_ARCH_NIOS2_R1
 #define ALT_CPU_CPU_FREQ 50000000u
 #define ALT_CPU_CPU_ID_SIZE 1
@@ -103,7 +103,7 @@
  */
 
 #define NIOS2_BIG_ENDIAN 0
-#define NIOS2_BREAK_ADDR 0x10240820
+#define NIOS2_BREAK_ADDR 0x10246820
 #define NIOS2_CPU_ARCH_NIOS2_R1
 #define NIOS2_CPU_FREQ 50000000u
 #define NIOS2_CPU_ID_SIZE 1
@@ -144,7 +144,10 @@
 #define __ALTERA_AVALON_JTAG_UART
 #define __ALTERA_AVALON_NEW_SDRAM_CONTROLLER
 #define __ALTERA_AVALON_ONCHIP_MEMORY2
+#define __ALTERA_AVALON_PIO
+#define __ALTERA_AVALON_SPI
 #define __ALTERA_AVALON_SYSID_QSYS
+#define __ALTERA_AVALON_TIMER
 #define __ALTERA_NIOS2_GEN2
 #define __ALTERA_UP_AVALON_AUDIO
 #define __ALTERA_UP_AVALON_AUDIO_AND_VIDEO_CONFIG
@@ -168,19 +171,19 @@
 #define ALT_NUM_INTERNAL_INTERRUPT_CONTROLLERS 1
 #define ALT_NUM_INTERRUPT_CONTROLLERS 1
 #define ALT_STDERR "/dev/jtag_uart"
-#define ALT_STDERR_BASE 0x10241038
+#define ALT_STDERR_BASE 0x10247088
 #define ALT_STDERR_DEV jtag_uart
 #define ALT_STDERR_IS_JTAG_UART
 #define ALT_STDERR_PRESENT
 #define ALT_STDERR_TYPE "altera_avalon_jtag_uart"
 #define ALT_STDIN "/dev/jtag_uart"
-#define ALT_STDIN_BASE 0x10241038
+#define ALT_STDIN_BASE 0x10247088
 #define ALT_STDIN_DEV jtag_uart
 #define ALT_STDIN_IS_JTAG_UART
 #define ALT_STDIN_PRESENT
 #define ALT_STDIN_TYPE "altera_avalon_jtag_uart"
 #define ALT_STDOUT "/dev/jtag_uart"
-#define ALT_STDOUT_BASE 0x10241038
+#define ALT_STDOUT_BASE 0x10247088
 #define ALT_STDOUT_DEV jtag_uart
 #define ALT_STDOUT_IS_JTAG_UART
 #define ALT_STDOUT_PRESENT
@@ -194,7 +197,7 @@
  */
 
 #define ALT_MODULE_CLASS_audio altera_up_avalon_audio
-#define AUDIO_BASE 0x10241020
+#define AUDIO_BASE 0x10247070
 #define AUDIO_IRQ 1
 #define AUDIO_IRQ_INTERRUPT_CONTROLLER_ID 0
 #define AUDIO_NAME "/dev/audio"
@@ -208,7 +211,7 @@
  */
 
 #define ALT_MODULE_CLASS_audio_and_video_config altera_up_avalon_audio_and_video_config
-#define AUDIO_AND_VIDEO_CONFIG_BASE 0x10241010
+#define AUDIO_AND_VIDEO_CONFIG_BASE 0x10247060
 #define AUDIO_AND_VIDEO_CONFIG_IRQ -1
 #define AUDIO_AND_VIDEO_CONFIG_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define AUDIO_AND_VIDEO_CONFIG_NAME "/dev/audio_and_video_config"
@@ -233,7 +236,7 @@
  */
 
 #define ALT_MODULE_CLASS_jtag_uart altera_avalon_jtag_uart
-#define JTAG_UART_BASE 0x10241038
+#define JTAG_UART_BASE 0x10247088
 #define JTAG_UART_IRQ 0
 #define JTAG_UART_IRQ_INTERRUPT_CONTROLLER_ID 0
 #define JTAG_UART_NAME "/dev/jtag_uart"
@@ -272,6 +275,33 @@
 #define ONCHIP_MEMORY2_SPAN 102400
 #define ONCHIP_MEMORY2_TYPE "altera_avalon_onchip_memory2"
 #define ONCHIP_MEMORY2_WRITABLE 1
+
+
+/*
+ * pio_touch configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_pio_touch altera_avalon_pio
+#define PIO_TOUCH_BASE 0x10247040
+#define PIO_TOUCH_BIT_CLEARING_EDGE_REGISTER 0
+#define PIO_TOUCH_BIT_MODIFYING_OUTPUT_REGISTER 0
+#define PIO_TOUCH_CAPTURE 1
+#define PIO_TOUCH_DATA_WIDTH 1
+#define PIO_TOUCH_DO_TEST_BENCH_WIRING 0
+#define PIO_TOUCH_DRIVEN_SIM_VALUE 0
+#define PIO_TOUCH_EDGE_TYPE "FALLING"
+#define PIO_TOUCH_FREQ 50000000
+#define PIO_TOUCH_HAS_IN 1
+#define PIO_TOUCH_HAS_OUT 0
+#define PIO_TOUCH_HAS_TRI 0
+#define PIO_TOUCH_IRQ 2
+#define PIO_TOUCH_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define PIO_TOUCH_IRQ_TYPE "EDGE"
+#define PIO_TOUCH_NAME "/dev/pio_touch"
+#define PIO_TOUCH_RESET_VALUE 0
+#define PIO_TOUCH_SPAN 16
+#define PIO_TOUCH_TYPE "altera_avalon_pio"
 
 
 /*
@@ -314,6 +344,37 @@
 
 
 /*
+ * spi_touch configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_spi_touch altera_avalon_spi
+#define SPI_TOUCH_BASE 0x10247000
+#define SPI_TOUCH_CLOCKMULT 1
+#define SPI_TOUCH_CLOCKPHASE 0
+#define SPI_TOUCH_CLOCKPOLARITY 0
+#define SPI_TOUCH_CLOCKUNITS "Hz"
+#define SPI_TOUCH_DATABITS 8
+#define SPI_TOUCH_DATAWIDTH 16
+#define SPI_TOUCH_DELAYMULT "1.0E-9"
+#define SPI_TOUCH_DELAYUNITS "ns"
+#define SPI_TOUCH_EXTRADELAY 0
+#define SPI_TOUCH_INSERT_SYNC 0
+#define SPI_TOUCH_IRQ -1
+#define SPI_TOUCH_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define SPI_TOUCH_ISMASTER 1
+#define SPI_TOUCH_LSBFIRST 0
+#define SPI_TOUCH_NAME "/dev/spi_touch"
+#define SPI_TOUCH_NUMSLAVES 1
+#define SPI_TOUCH_PREFIX "spi_"
+#define SPI_TOUCH_SPAN 32
+#define SPI_TOUCH_SYNC_REG_DEPTH 2
+#define SPI_TOUCH_TARGETCLOCK 32000u
+#define SPI_TOUCH_TARGETSSDELAY "0.0"
+#define SPI_TOUCH_TYPE "altera_avalon_spi"
+
+
+/*
  * sram configuration
  *
  */
@@ -333,14 +394,40 @@
  */
 
 #define ALT_MODULE_CLASS_sysid_qsys altera_avalon_sysid_qsys
-#define SYSID_QSYS_BASE 0x10241030
+#define SYSID_QSYS_BASE 0x10247080
 #define SYSID_QSYS_ID 0
 #define SYSID_QSYS_IRQ -1
 #define SYSID_QSYS_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define SYSID_QSYS_NAME "/dev/sysid_qsys"
 #define SYSID_QSYS_SPAN 8
-#define SYSID_QSYS_TIMESTAMP 1448011658
+#define SYSID_QSYS_TIMESTAMP 1448443857
 #define SYSID_QSYS_TYPE "altera_avalon_sysid_qsys"
+
+
+/*
+ * timer configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_timer altera_avalon_timer
+#define TIMER_ALWAYS_RUN 0
+#define TIMER_BASE 0x10247020
+#define TIMER_COUNTER_SIZE 32
+#define TIMER_FIXED_PERIOD 0
+#define TIMER_FREQ 50000000
+#define TIMER_IRQ 3
+#define TIMER_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define TIMER_LOAD_VALUE 49999
+#define TIMER_MULT 0.001
+#define TIMER_NAME "/dev/timer"
+#define TIMER_PERIOD 1
+#define TIMER_PERIOD_UNITS "ms"
+#define TIMER_RESET_OUTPUT 0
+#define TIMER_SNAPSHOT 1
+#define TIMER_SPAN 32
+#define TIMER_TICKS_PER_SEC 1000
+#define TIMER_TIMEOUT_PULSE_OUTPUT 0
+#define TIMER_TYPE "altera_avalon_timer"
 
 
 /*
@@ -349,7 +436,7 @@
  */
 
 #define ALT_MODULE_CLASS_video_pixel_buffer_dma altera_up_avalon_video_pixel_buffer_dma
-#define VIDEO_PIXEL_BUFFER_DMA_BASE 0x10241000
+#define VIDEO_PIXEL_BUFFER_DMA_BASE 0x10247050
 #define VIDEO_PIXEL_BUFFER_DMA_IRQ -1
 #define VIDEO_PIXEL_BUFFER_DMA_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define VIDEO_PIXEL_BUFFER_DMA_NAME "/dev/video_pixel_buffer_dma"

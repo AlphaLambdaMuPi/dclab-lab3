@@ -9,6 +9,7 @@
 			audio_external_interface_DACLRCK                : in    std_logic                     := 'X';             -- DACLRCK
 			clk_clk                                         : in    std_logic                     := 'X';             -- clk
 			clock_bridge_out_clk_clk                        : out   std_logic;                                        -- clk
+			pio_touch_external_connection_export            : in    std_logic                     := 'X';             -- export
 			reset_reset_n                                   : in    std_logic                     := 'X';             -- reset_n
 			sdram_controller_wire_addr                      : out   std_logic_vector(12 downto 0);                    -- addr
 			sdram_controller_wire_ba                        : out   std_logic_vector(1 downto 0);                     -- ba
@@ -19,6 +20,10 @@
 			sdram_controller_wire_dqm                       : out   std_logic_vector(3 downto 0);                     -- dqm
 			sdram_controller_wire_ras_n                     : out   std_logic;                                        -- ras_n
 			sdram_controller_wire_we_n                      : out   std_logic;                                        -- we_n
+			spi_touch_external_MISO                         : in    std_logic                     := 'X';             -- MISO
+			spi_touch_external_MOSI                         : out   std_logic;                                        -- MOSI
+			spi_touch_external_SCLK                         : out   std_logic;                                        -- SCLK
+			spi_touch_external_SS_n                         : out   std_logic;                                        -- SS_n
 			sram_external_interface_DQ                      : inout std_logic_vector(15 downto 0) := (others => 'X'); -- DQ
 			sram_external_interface_ADDR                    : out   std_logic_vector(19 downto 0);                    -- ADDR
 			sram_external_interface_LB_N                    : out   std_logic;                                        -- LB_N
@@ -50,6 +55,7 @@
 			audio_external_interface_DACLRCK                => CONNECTED_TO_audio_external_interface_DACLRCK,                --                                          .DACLRCK
 			clk_clk                                         => CONNECTED_TO_clk_clk,                                         --                                       clk.clk
 			clock_bridge_out_clk_clk                        => CONNECTED_TO_clock_bridge_out_clk_clk,                        --                      clock_bridge_out_clk.clk
+			pio_touch_external_connection_export            => CONNECTED_TO_pio_touch_external_connection_export,            --             pio_touch_external_connection.export
 			reset_reset_n                                   => CONNECTED_TO_reset_reset_n,                                   --                                     reset.reset_n
 			sdram_controller_wire_addr                      => CONNECTED_TO_sdram_controller_wire_addr,                      --                     sdram_controller_wire.addr
 			sdram_controller_wire_ba                        => CONNECTED_TO_sdram_controller_wire_ba,                        --                                          .ba
@@ -60,6 +66,10 @@
 			sdram_controller_wire_dqm                       => CONNECTED_TO_sdram_controller_wire_dqm,                       --                                          .dqm
 			sdram_controller_wire_ras_n                     => CONNECTED_TO_sdram_controller_wire_ras_n,                     --                                          .ras_n
 			sdram_controller_wire_we_n                      => CONNECTED_TO_sdram_controller_wire_we_n,                      --                                          .we_n
+			spi_touch_external_MISO                         => CONNECTED_TO_spi_touch_external_MISO,                         --                        spi_touch_external.MISO
+			spi_touch_external_MOSI                         => CONNECTED_TO_spi_touch_external_MOSI,                         --                                          .MOSI
+			spi_touch_external_SCLK                         => CONNECTED_TO_spi_touch_external_SCLK,                         --                                          .SCLK
+			spi_touch_external_SS_n                         => CONNECTED_TO_spi_touch_external_SS_n,                         --                                          .SS_n
 			sram_external_interface_DQ                      => CONNECTED_TO_sram_external_interface_DQ,                      --                   sram_external_interface.DQ
 			sram_external_interface_ADDR                    => CONNECTED_TO_sram_external_interface_ADDR,                    --                                          .ADDR
 			sram_external_interface_LB_N                    => CONNECTED_TO_sram_external_interface_LB_N,                    --                                          .LB_N
