@@ -40,7 +40,9 @@
 			video_vga_controller_external_interface_DATA_EN : out   std_logic;                                        -- DATA_EN
 			video_vga_controller_external_interface_R       : out   std_logic_vector(7 downto 0);                     -- R
 			video_vga_controller_external_interface_G       : out   std_logic_vector(7 downto 0);                     -- G
-			video_vga_controller_external_interface_B       : out   std_logic_vector(7 downto 0)                      -- B
+			video_vga_controller_external_interface_B       : out   std_logic_vector(7 downto 0);                     -- B
+			clk_0_clk                                       : in    std_logic                     := 'X';             -- clk
+			reset_0_reset_n                                 : in    std_logic                     := 'X'              -- reset_n
 		);
 	end component Core;
 
@@ -86,6 +88,8 @@
 			video_vga_controller_external_interface_DATA_EN => CONNECTED_TO_video_vga_controller_external_interface_DATA_EN, --                                          .DATA_EN
 			video_vga_controller_external_interface_R       => CONNECTED_TO_video_vga_controller_external_interface_R,       --                                          .R
 			video_vga_controller_external_interface_G       => CONNECTED_TO_video_vga_controller_external_interface_G,       --                                          .G
-			video_vga_controller_external_interface_B       => CONNECTED_TO_video_vga_controller_external_interface_B        --                                          .B
+			video_vga_controller_external_interface_B       => CONNECTED_TO_video_vga_controller_external_interface_B,       --                                          .B
+			clk_0_clk                                       => CONNECTED_TO_clk_0_clk,                                       --                                     clk_0.clk
+			reset_0_reset_n                                 => CONNECTED_TO_reset_0_reset_n                                  --                                   reset_0.reset_n
 		);
 

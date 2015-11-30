@@ -149,7 +149,11 @@ CXX_SRCS += main.cpp
 CXX_SRCS += audio/audio_core.cpp
 CXX_SRCS += LCD/lcd_core.cpp
 CXX_SRCS += LCD/Color.cpp
+CXX_SRCS += LCD/widget/Widget.cpp
+CXX_SRCS += LCD/widget/Text.cpp
+CXX_SRCS += LCD/widget/Button.cpp
 ASM_SRCS :=
+# CXX_SRCS += hello_ucosii.cpp
 
 
 # Path to root of object file tree.

@@ -39,6 +39,8 @@
 		.video_vga_controller_external_interface_DATA_EN (<connected-to-video_vga_controller_external_interface_DATA_EN>), //                                          .DATA_EN
 		.video_vga_controller_external_interface_R       (<connected-to-video_vga_controller_external_interface_R>),       //                                          .R
 		.video_vga_controller_external_interface_G       (<connected-to-video_vga_controller_external_interface_G>),       //                                          .G
-		.video_vga_controller_external_interface_B       (<connected-to-video_vga_controller_external_interface_B>)        //                                          .B
+		.video_vga_controller_external_interface_B       (<connected-to-video_vga_controller_external_interface_B>),       //                                          .B
+		.clk_0_clk                                       (<connected-to-clk_0_clk>),                                       //                                     clk_0.clk
+		.reset_0_reset_n                                 (<connected-to-reset_0_reset_n>)                                  //                                   reset_0.reset_n
 	);
 

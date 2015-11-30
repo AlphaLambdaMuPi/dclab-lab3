@@ -40,7 +40,9 @@ module Core (
 	video_vga_controller_external_interface_DATA_EN,
 	video_vga_controller_external_interface_R,
 	video_vga_controller_external_interface_G,
-	video_vga_controller_external_interface_B);	
+	video_vga_controller_external_interface_B,
+	clk_0_clk,
+	reset_0_reset_n);	
 
 	inout		audio_and_video_config_external_interface_SDAT;
 	output		audio_and_video_config_external_interface_SCLK;
@@ -83,4 +85,6 @@ module Core (
 	output	[7:0]	video_vga_controller_external_interface_R;
 	output	[7:0]	video_vga_controller_external_interface_G;
 	output	[7:0]	video_vga_controller_external_interface_B;
+	input		clk_0_clk;
+	input		reset_0_reset_n;
 endmodule

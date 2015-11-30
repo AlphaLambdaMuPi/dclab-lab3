@@ -2,10 +2,10 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>ucosii</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Nov 27, 2015 5:46:24 PM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1448617584403</BspGeneratedUnixTimeStamp>
-        <BspGeneratedLocation>/home/alpha/Documents/dclab-lab3/src/software/recorder_nios_bsp</BspGeneratedLocation>
-        <BspSettingsFile>./settings.bsp</BspSettingsFile>
+        <BspGeneratedTimeStamp>Nov 30, 2015 7:18:40 PM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1448882320658</BspGeneratedUnixTimeStamp>
+        <BspGeneratedLocation>./</BspGeneratedLocation>
+        <BspSettingsFile>recorder_nios_bsp/settings.bsp</BspSettingsFile>
         <SopcDesignFile>../../Core.sopcinfo</SopcDesignFile>
         <JdiFile>default</JdiFile>
         <Cpu>nios2_cpu</Cpu>

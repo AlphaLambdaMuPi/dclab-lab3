@@ -141,7 +141,13 @@ module DE2_115(
   // assign VGA_BLANK_N = _VGA_BLANK;
  // assign VGA_SYNC_N = ~_VGA_SYNC;
  wire adc_clk, adc_sel_n;
+ wire clock100;
  wire [7:0] out_r, out_g, out_b;
+ pll pll100(
+	.inclk0(CLOCK_50),
+	.c0(clock100)
+);
+ 
  Core (
    .audio_and_video_config_external_interface_SDAT(I2C_SDAT), // audio_and_video_config_external_interface.SDAT
    .audio_and_video_config_external_interface_SCLK(I2C_SCLK), //                                          .SCLK
@@ -164,7 +170,8 @@ module DE2_115(
    .sdram_controller_wire_we_n(DRAM_WE_N), 
    .sys_sdram_pll_sdram_clk_clk(DRAM_CLK),   		//                                          .we_n
 
-   .clk_clk(CLOCK_50),                                        //                                       clk.clk
+   .clk_clk(CLOCK_50),  
+.clk_0_clk(CLOCK_50),     	//                                       clk.clk
    .reset_reset_n(KEY[0]),                               //                                     reset.reset_n
 
    // LTM

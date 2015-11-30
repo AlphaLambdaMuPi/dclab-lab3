@@ -837,7 +837,7 @@
 										<fullscreen-action>false</fullscreen-action>
 										<node nodeId="1372710005721" orientation="HORIZONTAL" divider="0.22181146025878004">
 											<node nodeId="1375985011088" orientation="VERTICAL" divider="0.504054054054054">
-												<leaf id="3" nodeId="1375985003630">
+												<leaf id="2" nodeId="1375985003630">
 													<placeholders>
 														<placeholder>dock.single.Clock\ Domains\ \-\ Beta</placeholder>
 														<placeholder>dock.single.IP\ Catalog</placeholder>
@@ -898,7 +898,6 @@
 														<node nodeId="1447752847513" orientation="VERTICAL" divider="0.5598885793871866">
 															<leaf id="-1" nodeId="1389812800464">
 																<placeholders>
-																	<placeholder>dock.single.Parameters</placeholder>
 																	<placeholder>dock.single.Details</placeholder>
 																	<placeholder>dock.single.Block\ Symbol</placeholder>
 																	<placeholder>dock.single.Presets</placeholder>
@@ -913,11 +912,6 @@
 																	</entry>
 																	<entry>
 																		<key shared="false">
-																			<placeholder>dock.single.Parameters</placeholder>
-																		</key>
-																	</entry>
-																	<entry>
-																		<key shared="false">
 																			<placeholder>dock.single.Details</placeholder>
 																		</key>
 																	</entry>
@@ -928,10 +922,11 @@
 																	</entry>
 																</placeholder-map>
 															</leaf>
-															<leaf id="2" nodeId="1372710005735">
+															<leaf id="3" nodeId="1372710005735">
 																<placeholders>
 																	<placeholder>dock.single.Connections</placeholder>
 																	<placeholder>dock.single.System\ Contents</placeholder>
+																	<placeholder>dock.single.Parameters</placeholder>
 																	<placeholder>dock.single.Assignments</placeholder>
 																	<placeholder>dock.single.Schematic</placeholder>
 																	<placeholder>dock.single.Clocks</placeholder>
@@ -951,11 +946,6 @@
 																<placeholder-map>
 																	<version>0</version>
 																	<format>dock.PlaceholderList</format>
-																	<entry>
-																		<key shared="false">
-																			<placeholder>dock.single.System\ Contents</placeholder>
-																		</key>
-																	</entry>
 																	<entry>
 																		<key shared="false">
 																			<placeholder>dock.single.Address\ Map</placeholder>
@@ -989,6 +979,16 @@
 																	<entry>
 																		<key shared="false">
 																			<placeholder>dock.single.Schematic</placeholder>
+																		</key>
+																	</entry>
+																	<entry>
+																		<key shared="false">
+																			<placeholder>dock.single.System\ Contents</placeholder>
+																		</key>
+																	</entry>
+																	<entry>
+																		<key shared="false">
+																			<placeholder>dock.single.Parameters</placeholder>
 																		</key>
 																	</entry>
 																</placeholder-map>
@@ -1102,20 +1102,20 @@
 									</children>
 								</child>
 								<child>
-									<layout factory="predefined" placeholder="dock.single.System\ Contents">
-										<replacement id="dockablesingle System Contents"/>
+									<layout factory="predefined" placeholder="dock.single.IP\ Catalog">
+										<replacement id="dockablesingle IP Catalog"/>
 										<delegate id="delegate_ccontrol backup factory id">
-											<id>System Contents</id>
+											<id>IP Catalog</id>
 											<area/>
 										</delegate>
 									</layout>
 									<children ignore="false"/>
 								</child>
 								<child>
-									<layout factory="predefined" placeholder="dock.single.IP\ Catalog">
-										<replacement id="dockablesingle IP Catalog"/>
+									<layout factory="predefined" placeholder="dock.single.System\ Contents">
+										<replacement id="dockablesingle System Contents"/>
 										<delegate id="delegate_ccontrol backup factory id">
-											<id>IP Catalog</id>
+											<id>System Contents</id>
 											<area/>
 										</delegate>
 									</layout>
@@ -1204,7 +1204,7 @@
 								<property factory="flap dock">
 									<index>0</index>
 									<holding>false</holding>
-									<size>400</size>
+									<size>343</size>
 									<placeholder>dock.single.Parameters</placeholder>
 								</property>
 							</location>
@@ -1547,8 +1547,8 @@
 						</entry>
 						<entry id="single Parameters">
 							<history>
-								<mode>dock.mode.normal</mode>
 								<mode>dock.mode.maximized</mode>
+								<mode>dock.mode.normal</mode>
 								<mode>dock.mode.minimized</mode>
 							</history>
 							<properties>
@@ -1561,7 +1561,7 @@
 								</property>
 								<property id="dock.mode.minimized">
 									<mode>dock.mode.minimized</mode>
-									<root>ccontrol north</root>
+									<root>ccontrol east</root>
 									<location>
 										<property factory="flap dock">
 											<index>0</index>
@@ -1582,9 +1582,13 @@
 												<node location="TOP" size="0.75" id="1372710005725"/>
 												<node location="RIGHT" size="0.38168060992145725" id="1372710005727"/>
 												<node location="TOP" size="0.6704331450094162" id="1389812802503"/>
-												<node location="TOP" size="0.5598885793871866" id="1447752847513"/>
-												<leaf id="1389812800464"/>
+												<node location="BOTTOM" size="0.4401114206128134" id="1447752847513"/>
+												<leaf id="1372710005735"/>
 											</backup-path>
+										</property>
+										<property factory="StackDockPropertyFactory">
+											<index>1</index>
+											<placeholder>dock.single.Parameters</placeholder>
 										</property>
 									</location>
 								</property>

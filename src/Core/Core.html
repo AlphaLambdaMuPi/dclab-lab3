@@ -67,7 +67,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
   </table>
   <table class="blueBar">
    <tr>
-    <td class="l">2015.11.25.17:30:57</td>
+    <td class="l">2015.11.30.19:07:17</td>
     <td class="r">Datasheet</td>
    </tr>
   </table>
@@ -78,7 +78,13 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
     <table class="connectionboxes">
      <tr>
       <td class="lefthandwire">&#160;&#160;clk_0&#160;</td>
-      <td class="main" rowspan="2">Core</td>
+      <td class="main" rowspan="4">Core</td>
+     </tr>
+     <tr style="height:6px">
+      <td></td>
+     </tr>
+     <tr>
+      <td class="lefthandwire">&#160;&#160;clk_1&#160;</td>
      </tr>
      <tr style="height:6px">
       <td></td>
@@ -747,6 +753,53 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        <tr>
         <td class="parametername">clockFrequency</td>
         <td class="parametervalue">50000000</td>
+       </tr>
+       <tr>
+        <td class="parametername">clockFrequencyKnown</td>
+        <td class="parametervalue">true</td>
+       </tr>
+       <tr>
+        <td class="parametername">inputClockFrequency</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">resetSynchronousEdges</td>
+        <td class="parametervalue">NONE</td>
+       </tr>
+       <tr>
+        <td class="parametername">deviceFamily</td>
+        <td class="parametervalue">UNKNOWN</td>
+       </tr>
+       <tr>
+        <td class="parametername">generateLegacySim</td>
+        <td class="parametervalue">false</td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+   </table>&#160;&#160;
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Software Assignments</h2>(none)</td>
+    </tr>
+   </table>
+  </div>
+  <a name="module_clk_1"> </a>
+  <div>
+   <hr/>
+   <h2>clk_1</h2>clock_source v15.1
+   <br/>
+   <br/>
+   <br/>
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Parameters</h2>
+      <table>
+       <tr>
+        <td class="parametername">clockFrequency</td>
+        <td class="parametervalue">100000000</td>
        </tr>
        <tr>
         <td class="parametername">clockFrequencyKnown</td>
@@ -2191,11 +2244,11 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        </tr>
        <tr>
         <td class="parametername">AUTO_CLK_CLOCK_DOMAIN</td>
-        <td class="parametervalue">9</td>
+        <td class="parametervalue">11</td>
        </tr>
        <tr>
         <td class="parametername">AUTO_CLK_RESET_DOMAIN</td>
-        <td class="parametervalue">9</td>
+        <td class="parametervalue">11</td>
        </tr>
        <tr>
         <td class="parametername">deviceFamily</td>
@@ -3462,16 +3515,22 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
    <div class="greydiv">
     <table class="connectionboxes">
      <tr>
-      <td class="neighbor" rowspan="4">
-       <a href="#module_clk_0">clk_0</a>
+      <td class="neighbor" rowspan="2">
+       <a href="#module_clk_1">clk_1</a>
       </td>
       <td class="from">clk&#160;&#160;</td>
-      <td class="main" rowspan="61">sys_sdram_pll</td>
+      <td class="main" rowspan="62">sys_sdram_pll</td>
      </tr>
      <tr>
       <td class="to">&#160;&#160;ref_clk</td>
      </tr>
+     <tr style="height:6px">
+      <td></td>
+     </tr>
      <tr>
+      <td class="neighbor" rowspan="2">
+       <a href="#module_clk_0">clk_0</a>
+      </td>
       <td class="from">clk_reset&#160;&#160;</td>
      </tr>
      <tr>
@@ -3920,7 +3979,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        </tr>
        <tr>
         <td class="parametername">timestamp</td>
-        <td class="parametervalue">1448443857</td>
+        <td class="parametervalue">1448881637</td>
        </tr>
        <tr>
         <td class="parametername">AUTO_DEVICE_FAMILY</td>
@@ -3949,7 +4008,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        </tr>
        <tr>
         <td class="parametername">TIMESTAMP</td>
-        <td class="parametervalue">1448443857</td>
+        <td class="parametervalue">1448881637</td>
        </tr>
       </table>
      </td>
@@ -4383,7 +4442,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        </tr>
        <tr>
         <td class="parametername">back_start_address</td>
-        <td class="parametervalue">268435456</td>
+        <td class="parametervalue">269484032</td>
        </tr>
        <tr>
         <td class="parametername">image_width</td>
@@ -4810,7 +4869,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
   <table class="blueBar">
    <tr>
     <td class="l">generation took 0.00 seconds</td>
-    <td class="r">rendering took 0.04 seconds</td>
+    <td class="r">rendering took 0.03 seconds</td>
    </tr>
   </table>
  </body>

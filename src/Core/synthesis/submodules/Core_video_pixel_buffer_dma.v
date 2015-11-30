@@ -66,7 +66,7 @@ module Core_video_pixel_buffer_dma (
 
 // Parameters
 parameter DEFAULT_BUFFER_ADDRESS		= 32'd268435456;
-parameter DEFAULT_BACK_BUF_ADDRESS	= 32'd268435456;
+parameter DEFAULT_BACK_BUF_ADDRESS	= 32'd269484032;
 
 parameter WW						= 9;  // Image width's address width
 parameter HW						= 8;  // Image height's address width
