@@ -23,6 +23,7 @@ namespace LCD {
     extern const int FONT_HEIGHT;
     void root_render();
     int draw_circle(int, int, int, int);
+    int draw_triangle(int, int, int, int, int);
     int draw_char(char, int, int,
         Color fgcolor={0, 0, 0}, Color bgcolor={255, 255, 255});
     void draw_string(char*, int, int,

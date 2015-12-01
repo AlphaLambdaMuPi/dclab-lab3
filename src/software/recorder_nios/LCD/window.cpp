@@ -78,6 +78,14 @@ namespace LCD {
       }
     }
 
+    int draw_string(int x, int y, int width, int height, int c) {
+      int h2 = height / 2;
+      for (int i=h2; i>=0; i--) {
+        draw_line(x, y+i, x+width*i/h2, y+i);
+        draw_line(x, y+height-i, x+width*i/h2, y+height-i);
+      }
+    }
+
     int draw_char(char c, int x, int y, Color fgcolor, Color bgcolor) {
       if (c == ' ') return 8;
       int id = c - 33;

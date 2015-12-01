@@ -42,6 +42,7 @@ void StateButton::toggle_state() {
 bool StateButton::onMouseEvent(MouseEvent e) {
   // printf("%d\n", e.event_type);
   if(e.event_type == 2) {
+    Button::onMouseEvent(e);
     return true;
     // toggle_state();
   }

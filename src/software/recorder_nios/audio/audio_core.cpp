@@ -8,7 +8,8 @@ namespace Audio {
   ushort *read_buffer, *write_buffer;
   int read_max_len, write_len;
   int read_ptr;
-  int write_ptr30;
+  int write_ptr, write_rm;
+  int interp_type = 0;
   int mode = 3;
   int speed = 32;
 
@@ -57,16 +58,18 @@ namespace Audio {
     } else if (mode == 2) {
       //Write Only
       int wavail = wspace(), _av = 0;
-      int write_ptr = write_ptr30 >> 5, rm = write_ptr30 - (write_ptr << 5);
+
       for (int i=0; (i < wavail) and (write_ptr < write_len); i++) {
-        _tmp_buffer[i] = (write_buffer[write_ptr] * (32 - rm) 
-            + write_buffer[write_ptr+1] * rm) >> 5;
-        // _tmp_buffer[i] = write_buffer[write_ptr];
-        rm += speed;
-        write_ptr30 += speed;
-        if (rm >= 32) {
-          write_ptr += (rm >> 5);
-          rm &= (31);
+
+        _tmp_buffer[i] = (interp_type == 0) ? write_buffer[write_ptr] :
+          (write_buffer[write_ptr] * (32 - write_rm) 
+           + write_buffer[write_ptr+1] * write_rm) >> 5;
+
+        write_rm += speed;
+
+        if (write_rm >= 32) {
+          write_ptr += (write_rm >> 5);
+          write_rm &= (31);
         }
         _av ++;
       }
@@ -108,16 +111,24 @@ namespace Audio {
     mode = 2;
     write_buffer = buf;
     write_len = max_len;
-    write_ptr30 = 0;
+    write_ptr = write_rm = 0;
   }
 
   int stop_write() {
     mode = 0;
-    return write_ptr30 / 30;
+    return write_ptr;
   }
 
   void start_echo() {
     mode = 3;
+  }
+
+  void pause() {
+    mode = 0;
+  }
+
+  void resume() {
+    mode = 2;
   }
 
   void stop() {
