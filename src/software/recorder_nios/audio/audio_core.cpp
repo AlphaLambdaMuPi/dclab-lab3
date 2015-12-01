@@ -8,9 +8,9 @@ namespace Audio {
   ushort *read_buffer, *write_buffer;
   int read_max_len, write_len;
   int read_ptr;
-  int write_ptr;
+  int write_ptr30;
   int mode = 3;
-  int speed = 1;
+  int speed = 32;
 
   int max_lat = 0;
 
@@ -33,6 +33,11 @@ namespace Audio {
     return alt_up_audio_write_fifo_space(dev, 0);
   }
 
+  ushort get_data(double t) {
+    // int t1 = t, t2 = t+1;
+    // return write_buffer[t1] * (t - t1) + write_buffer[t2] * (t2 - t);
+    return write_buffer[(int)t];
+  }
 
   uint _tmp_buffer[BUFFER_SIZE];
   void audio_handler(void *dt, unsigned long id) {
@@ -52,14 +57,22 @@ namespace Audio {
     } else if (mode == 2) {
       //Write Only
       int wavail = wspace(), _av = 0;
+      int write_ptr = write_ptr30 >> 5, rm = write_ptr30 - (write_ptr << 5);
       for (int i=0; (i < wavail) and (write_ptr < write_len); i++) {
-        _tmp_buffer[i] = write_buffer[write_ptr];
-        write_ptr += speed;
+        _tmp_buffer[i] = (write_buffer[write_ptr] * (32 - rm) 
+            + write_buffer[write_ptr+1] * rm) >> 5;
+        // _tmp_buffer[i] = write_buffer[write_ptr];
+        rm += speed;
+        write_ptr30 += speed;
+        if (rm >= 32) {
+          write_ptr += (rm >> 5);
+          rm &= (31);
+        }
         _av ++;
       }
       alt_up_audio_write_fifo(dev, _tmp_buffer, _av, 0);
       alt_up_audio_write_fifo(dev, _tmp_buffer, _av, 1);
-      if (write_ptr == write_len)
+      if (write_ptr >= write_len)
         stop();
     } else if (mode == 3) {
       alt_up_audio_write_fifo(dev, _tmp_buffer, avail, 0);
@@ -95,12 +108,12 @@ namespace Audio {
     mode = 2;
     write_buffer = buf;
     write_len = max_len;
-    write_ptr = 0;
+    write_ptr30 = 0;
   }
 
   int stop_write() {
     mode = 0;
-    return write_ptr;
+    return write_ptr30 / 30;
   }
 
   void start_echo() {

@@ -29,6 +29,8 @@ bool Slider::onMouseEvent(MouseEvent e) {
     return true;
   int x = e.x;
   set_value((0.0 + x) / width);
+  if (change_handler)
+    change_handler(value);
   return true;
 }
 

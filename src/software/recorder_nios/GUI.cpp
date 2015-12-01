@@ -16,9 +16,9 @@ namespace GUI {
 
   Choicer top_row;
   StateButton btn_stop, btn_play, btn_record;
-  Slider audio_slider;
-  Button btn_pause, btn_reset;
-  Text audio_time;
+  Slider audio_slider, speed_slider;
+  Button btn_pause, btn_speed_reset;
+  Text audio_time, speed_text;
 
   void btn_b1_handler() {
     printf("Button #1\n");
@@ -38,6 +38,13 @@ namespace GUI {
     char t[20];
     sprintf(t, "%d:%02d/%d:%02d", m1, s1, m2, s2);
     audio_time.set_text(t);
+  }
+
+  const int speeds[] = {4, 8, 16, 24, 32, 64, 96, 160, 320};
+  void speed_slider_handler(double value) {
+    printf("%lf", value);
+    int v = (value * 9) + 0.5;
+    Audio::speed = speeds[v];
   }
 
   void choicer_top_handler(int val) {
@@ -70,22 +77,37 @@ namespace GUI {
     Audio::stop_handler = audio_stop_handler;
     Root.add_child(&top_row);
 
-    btn_pause = Button(0, 100, 200, 100, "Pause", {255, 255, 255}, {60, 60, 60});
+    btn_pause = Button(0, 100, 200, 100, "Pause", {255, 255, 255}, {40, 40, 40});
     Root.add_child(&btn_pause);
 
     audio_slider = Slider(200, 100, 400, 100);
     audio_slider.set_ball_color({254, 153, 0})
-      .set_active_color({255, 0, 0}).set_color({180, 180, 180}).set_bgcolor({60, 60, 60});
+      .set_active_color({255, 0, 0}).set_color({180, 180, 180}).set_bgcolor({40, 40, 40});
     Root.add_child(&audio_slider);
 
     audio_time = Text(600, 100, 200, 100, "0:00/0:00", {255, 255, 255});
-    audio_time.set_bgcolor({60, 60, 60});
+    audio_time.set_bgcolor({40, 40, 40});
     Root.add_child(&audio_time);
+
+    btn_speed_reset = Button(0, 220, 200, 100, "Reset speed", {255, 255, 255}, {40, 40, 40});
+    Root.add_child(&btn_speed_reset);
+
+    speed_slider = Slider(200, 220, 400, 100);
+    speed_slider.set_value(0.5).set_ball_color({254, 153, 0})
+      .set_active_color({255, 0, 0}).set_color({180, 180, 180}).set_bgcolor({40, 40, 40});
+    speed_slider.set_handler(&speed_slider_handler);
+    Root.add_child(&speed_slider);
+  
+    speed_text = Text(600, 220, 200, 100, "x1", {255, 255, 255});
+    speed_text.set_bgcolor({40, 40, 40});
+    Root.add_child(&speed_text);
+
+    Audio::speed = 48;
   }
 
   void task() {
     if (cur_state == 1) {
-      set_audio_time(Audio::write_ptr/48000, audio_len/48000);
+      set_audio_time(Audio::write_ptr30/30/48000, audio_len/48000);
     } else if (cur_state == 2) {
       set_audio_time(Audio::read_ptr/48000, AUDIO_BUF_LEN/48000);
     }
