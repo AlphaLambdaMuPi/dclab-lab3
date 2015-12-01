@@ -7,6 +7,11 @@
 
 #include "LCD/window.h"
 
+#define font_buffer comic32bm
+#define font_cnt comic32cnt
+#define font_pos comic32pos
+
+
 namespace LCD {
   namespace Window {
 
@@ -37,9 +42,6 @@ namespace LCD {
     }
 
     const int FONT_HEIGHT = 20;
-#define font_buffer arial22bm
-#define font_cnt arial22cnt
-#define font_pos arial22pos
     int get_char_width(char c) {
       if (c == ' ') return 8;
       int id = c - 33;
@@ -62,6 +64,18 @@ namespace LCD {
         ret += get_char_width(c);
       }
       return ret;
+    }
+
+    int draw_circle(int x, int y, int r, int c) {
+      int r2 = r * r;
+      int tx = r;
+      for (int i=0; i<=r; i++) {
+        while (tx > 0 and tx * tx + i * i >= r2)
+          tx --;
+
+        draw_line(x - tx, y+i, x + tx, y+i, c);
+        draw_line(x - tx, y-i, x + tx, y-i, c);
+      }
     }
 
     int draw_char(char c, int x, int y, Color fgcolor, Color bgcolor) {

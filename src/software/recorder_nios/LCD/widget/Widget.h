@@ -15,8 +15,8 @@ namespace LCD {
 namespace Window {
 
 class Widget: public virtual Renderable {
-  vector<Renderable*> children;
 public:
+  vector<Renderable*> children;
 	Widget();
   Widget(POS_INFO);
   Widget& add_child(Renderable*);

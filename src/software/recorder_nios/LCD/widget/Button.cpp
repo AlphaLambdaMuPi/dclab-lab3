@@ -15,28 +15,32 @@ Button::Button() {
 
 }
 
-Button::Button(int x, int y, int width, int height, char *label, 
-    Color _bgcolor, Color _color)
-  : Renderable(x, y, width, height), bgcolor(_bgcolor), color(_color)  {
+Button::Button(POS_INFO, string s, Color _color, Color _bgcolor)
+  : Renderable(x, y, width, height), text(s) {
 	// TODO Auto-generated constructor stub
-  strcpy(text, label);
+  bgcolor = _bgcolor;
+  color = _color;
 }
 
 Button::~Button() {
 	// TODO Auto-generated destructor stub
+  click_handler = NULL;
 }
 
-void Button::render() {
-  draw_box(x, y, x+width, y+height, bgcolor);
-  int mdx = x + width / 2, mdy = y + height / 2;
+void Button::render(int tx, int ty, Color parent_bgcolor) {
+  Renderable::render(tx, ty, parent_bgcolor);
+  // draw_box(tx+x, ty+y, tx+x+width, ty+y+height, bgcolor);
+  int mdx = tx+x + width / 2, mdy = ty+y + height / 2;
   int stx = mdx - Window::get_string_width(text)/2,
       sty = mdy + Window::FONT_HEIGHT/2;
   draw_string(text, stx, sty, color, bgcolor);
 }
 
-bool Button::onMouseUp(int x, int y) {
-  if (click_handler) {
-    click_handler();
+bool Button::onMouseEvent(MouseEvent e) {
+  if (e.event_type == MouseEvent::MouseUp) {
+    if (click_handler) {
+      click_handler();
+    }
   }
   return true;
 }

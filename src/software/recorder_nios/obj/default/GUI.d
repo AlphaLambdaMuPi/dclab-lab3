@@ -16,7 +16,11 @@ obj/default/GUI.o: GUI.cpp GUI.h global.h \
  LCD/lcd_core.h LCD/widget/Widget.h LCD/widget/Renderable.h \
  LCD/lcd_include.h LCD/widget/Container.h LCD/widget/Clickable.h \
  LCD/widget/Renderable.h LCD/widget/Widget.h LCD/widget/Container.h \
- LCD/widget/Text.h LCD/widget/Renderable.h LCD/window.h
+ LCD/widget/Text.h LCD/widget/Renderable.h LCD/window.h \
+ LCD/widget/Button.h LCD/widget/Clickable.h LCD/widget/RowDivider.h \
+ LCD/widget/Container.h LCD/widget/StateButton.h LCD/widget/Button.h \
+ LCD/widget/StateButton.h LCD/widget/Choicer.h LCD/widget/RowDivider.h \
+ LCD/widget/Slider.h LCD/widget/Clickable.h LCD/widget/Widget.h
 
 GUI.h:
 
@@ -83,3 +87,27 @@ LCD/widget/Text.h:
 LCD/widget/Renderable.h:
 
 LCD/window.h:
+
+LCD/widget/Button.h:
+
+LCD/widget/Clickable.h:
+
+LCD/widget/RowDivider.h:
+
+LCD/widget/Container.h:
+
+LCD/widget/StateButton.h:
+
+LCD/widget/Button.h:
+
+LCD/widget/StateButton.h:
+
+LCD/widget/Choicer.h:
+
+LCD/widget/RowDivider.h:
+
+LCD/widget/Slider.h:
+
+LCD/widget/Clickable.h:
+
+LCD/widget/Widget.h:

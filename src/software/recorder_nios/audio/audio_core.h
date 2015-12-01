@@ -15,6 +15,8 @@ namespace Audio
   extern int max_lat;
   extern int mode;
   extern int speed;
+  extern int read_ptr, write_ptr;
+  extern void (*stop_handler)(void);
   void init();
   void start_read(ushort*, int);
   int get_current_read();

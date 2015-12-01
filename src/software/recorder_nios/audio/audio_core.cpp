@@ -12,9 +12,9 @@ namespace Audio {
   int mode = 3;
   int speed = 1;
 
-
   int max_lat = 0;
 
+  void (*stop_handler)(void) = NULL;
 
   /* Fix the audio ju ma kai men & 8 wave problem */
   static int alt_read_wrapper(uint *buf, int len) {
@@ -47,6 +47,8 @@ namespace Audio {
         if (read_ptr == read_max_len) break;
         read_buffer[read_ptr++] = _tmp_buffer[i];
       }
+      alt_up_audio_write_fifo(dev, _tmp_buffer, avail, 0);
+      alt_up_audio_write_fifo(dev, _tmp_buffer, avail, 1);
     } else if (mode == 2) {
       //Write Only
       int wavail = wspace(), _av = 0;
@@ -106,6 +108,8 @@ namespace Audio {
   }
 
   void stop() {
+    if (stop_handler)
+      stop_handler();
     mode = 0;
   }
 

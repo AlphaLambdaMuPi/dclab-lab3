@@ -20,7 +20,12 @@ Text::Text(int x, int y, int width, int height, string s, Color _color)
 }
 
 void Text::render(int tx, int ty, Color parent_bgcolor) {
-  draw_string(text, tx+x, ty+y-Window::FONT_HEIGHT, color, bgcolor | parent_bgcolor);
+  Renderable::render(tx, ty, parent_bgcolor);
+  // draw_box(tx+x, ty+y, tx+x+width, ty+y+height, bgcolor);
+  int mdx = tx+x + width / 2, mdy = ty+y + height / 2;
+  int stx = mdx - Window::get_string_width(text)/2,
+      sty = mdy + Window::FONT_HEIGHT/2;
+  draw_string(text, stx, sty, color, bgcolor);
 }
 
 Text::~Text() {

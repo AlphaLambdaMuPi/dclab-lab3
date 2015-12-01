@@ -6,6 +6,7 @@
  */
 #include "lcd_core.h"
 
+
 namespace LCD {
   alt_up_pixel_buffer_dma_dev *dev;
 
@@ -43,6 +44,7 @@ namespace LCD {
   }
 
   void draw_pixel(int x, int y, int color) {
+    if (x < 0 or x >= 800 or y < 0 or y >= 480) return;
     alt_up_pixel_buffer_dma_draw(dev, color, x, y);
   }
 

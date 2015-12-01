@@ -20,11 +20,11 @@ Clickable::~Clickable() {
 }
 
 
-bool Clickable::onMouseEvent(const MouseEvent &e) {
-  // int ex = e.x, ey = e.y;
-  // if (x <= ex and ex <= x+width and y <= ey and ey <= y+height) {
-    // printf("%d\n", e.event_type);
-  // }
+bool Clickable::_onMouseEvent(MouseEvent e) {
+  if (x <= e.x and e.x <= x+width and y <= e.y and e.y <= y+height) {
+    e.x -= x; e.y -= y;
+    return onMouseEvent(e);
+  }
   return false;
 }
 

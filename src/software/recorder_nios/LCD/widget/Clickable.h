@@ -26,7 +26,8 @@ public:
   };
 	Clickable();
   Clickable(POS_INFO);
-  bool onMouseEvent(const MouseEvent &e);
+  virtual bool _onMouseEvent(MouseEvent e);
+  virtual bool onMouseEvent(MouseEvent e) = 0;
   virtual ~Clickable();
 };
 

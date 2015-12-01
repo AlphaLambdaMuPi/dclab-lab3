@@ -13,9 +13,6 @@
 #include "typedef.h"
 #include "altera_avalon_spi.h"
 
-extern uchar arial22bm[];
-extern int arial22cnt[];
-extern int arial22pos[][5];
 
 namespace LCD {
   struct Color{

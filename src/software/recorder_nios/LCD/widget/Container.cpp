@@ -22,5 +22,16 @@ Container::~Container() {
 	// TODO Auto-generated destructor stub
 }
 
+bool Container::onMouseEvent(MouseEvent e) {
+  for (const auto child: children) {
+    Clickable* cast = dynamic_cast<Clickable*>(child);
+    if (cast) {
+      if (cast->_onMouseEvent(e))
+        return true;
+    }
+  }
+  return true;
+}
+
 } /* namespace Window */
 } /* namespace LCD */

@@ -19,6 +19,7 @@ Widget::Widget(POS_INFO) : Renderable(x, y, width, height) {
 }
 
 Widget& Widget::add_child(Renderable* c) {
+  printf("%d <- %d\n", this, c);
   children.push_back(c);
 }
 

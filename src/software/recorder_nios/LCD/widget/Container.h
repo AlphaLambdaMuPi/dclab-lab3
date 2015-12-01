@@ -22,6 +22,7 @@ public:
   virtual void render(int x, int y, Color c) {
     Widget::render(x, y, c);
   }
+  bool onMouseEvent(MouseEvent e);
 };
 
 } /* namespace Window */

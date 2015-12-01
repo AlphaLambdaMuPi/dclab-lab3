@@ -29,7 +29,6 @@ int main()
 {
   printf("Hello Nios\n");
   Audio::init();
-  Audio::speed = 5;
   LCD::init();
   GUI::init();
                

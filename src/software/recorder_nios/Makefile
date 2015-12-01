@@ -142,9 +142,10 @@ ACDS_VERSION := 15.1
 ELF := recorder_nios.elf
 
 # Paths to C, C++, and assembly source files.
-C_SRCS += LCD/font/arial18.c
-C_SRCS += LCD/font/arial22.c
-C_SRCS += LCD/font/arial40.c
+# C_SRCS += LCD/font/arial18.c
+# C_SRCS += LCD/font/arial22.c
+# C_SRCS += LCD/font/arial40.c
+C_SRCS := LCD/font/comic32.c
 CXX_SRCS += main.cpp
 CXX_SRCS += audio/audio_core.cpp
 CXX_SRCS += LCD/lcd_core.cpp
@@ -155,6 +156,11 @@ CXX_SRCS += LCD/widget/Widget.cpp
 CXX_SRCS += LCD/widget/Clickable.cpp
 CXX_SRCS += LCD/widget/Container.cpp
 CXX_SRCS += LCD/widget/Text.cpp
+CXX_SRCS += LCD/widget/Button.cpp
+CXX_SRCS += LCD/widget/RowDivider.cpp
+CXX_SRCS += LCD/widget/StateButton.cpp
+CXX_SRCS += LCD/widget/Choicer.cpp
+CXX_SRCS += LCD/widget/Slider.cpp
 ASM_SRCS :=
 # CXX_SRCS += LCD/widget/Text.cpp
 # CXX_SRCS += LCD/widget/Button.cpp
