@@ -1,7 +1,7 @@
 /*
  * Widget.cpp
  *
- *  Created on: Nov 30, 2015
+ *  Created on: Dec 1, 2015
  *      Author: alpha
  */
 
@@ -15,11 +15,20 @@ Widget::Widget() {
 
 }
 
-Widget::Widget(int _x, int _y, int _height, int _width)
-  : x(_x), y(_y), height(_height), width(_width)
-{
-	// TODO Auto-generated constructor stub
+Widget::Widget(POS_INFO) : Renderable(x, y, width, height) {
+}
 
+Widget& Widget::add_child(Renderable* c) {
+  children.push_back(c);
+}
+
+void Widget::render(int tx, int ty, Color parent_bgcolor) {
+  if (not bgcolor.unset) {
+    draw_box(tx+x, ty+y, tx+x+width, ty+y+height, bgcolor);
+  }
+  for (auto child: children) {
+    child->render(tx+x, ty+y, bgcolor | parent_bgcolor);
+  }
 }
 
 Widget::~Widget() {

@@ -8,22 +8,21 @@
 #ifndef TEXT_H_
 #define TEXT_H_
 
-#include "Widget.h"
-#include "../lcd_core.h"
+#include "Renderable.h"
+#include "LCD/window.h"
 #include <cstring>
 
 namespace LCD {
 namespace Window {
 
-class Text: public Widget {
+class Text: public Renderable {
 public:
-  char text[MAX_STRLEN];
+  SETTER(string, text)
   Color color;
 	Text();
-  Text(int, int, int, int, char*, Color color={0, 0, 0});
+  Text(POS_INFO, string, Color color={0, 0, 0});
 	virtual ~Text();
-  virtual void render();
-  void set_text(char*);
+  virtual void render(int, int, Color);
 };
 #undef MAX_CHAR
 

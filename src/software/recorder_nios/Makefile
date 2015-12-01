@@ -30,8 +30,8 @@ MAKEABLE_LIBRARY_ROOT_DIRS :=
 
 # Generic flags passed to the compiler for different types of input files.
 ALT_CFLAGS := -fdiagnostics-color=auto
-ALT_CXXFLAGS := -fdiagnostics-color=auto -std=c++11
-ALT_CPPFLAGS := -fdiagnostics-color=auto
+ALT_CXXFLAGS := -fdiagnostics-color=auto -std=c++1y
+ALT_CPPFLAGS := -fdiagnostics-color=auto -std=c++1y
 ALT_ASFLAGS := -fdiagnostics-color=auto
 ALT_LDFLAGS := -fdiagnostics-color=auto
 
@@ -148,11 +148,18 @@ C_SRCS += LCD/font/arial40.c
 CXX_SRCS += main.cpp
 CXX_SRCS += audio/audio_core.cpp
 CXX_SRCS += LCD/lcd_core.cpp
-CXX_SRCS += LCD/Color.cpp
+CXX_SRCS += LCD/window.cpp
+CXX_SRCS += GUI.cpp
+CXX_SRCS += LCD/widget/Renderable.cpp
 CXX_SRCS += LCD/widget/Widget.cpp
+CXX_SRCS += LCD/widget/Clickable.cpp
+CXX_SRCS += LCD/widget/Container.cpp
 CXX_SRCS += LCD/widget/Text.cpp
-CXX_SRCS += LCD/widget/Button.cpp
 ASM_SRCS :=
+# CXX_SRCS += LCD/widget/Text.cpp
+# CXX_SRCS += LCD/widget/Button.cpp
+# CXX_SRCS += LCD/widget/Clickable.cpp
+# CXX_SRCS += LCD/widget/Container.cpp
 # CXX_SRCS += hello_ucosii.cpp
 
 

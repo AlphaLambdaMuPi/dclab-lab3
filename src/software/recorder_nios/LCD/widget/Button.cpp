@@ -17,7 +17,7 @@ Button::Button() {
 
 Button::Button(int x, int y, int width, int height, char *label, 
     Color _bgcolor, Color _color)
-  : Widget(x, y, width, height), bgcolor(_bgcolor), color(_color)  {
+  : Renderable(x, y, width, height), bgcolor(_bgcolor), color(_color)  {
 	// TODO Auto-generated constructor stub
   strcpy(text, label);
 }

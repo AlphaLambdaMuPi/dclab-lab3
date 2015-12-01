@@ -1,35 +1,27 @@
 /*
  * Widget.h
  *
- *  Created on: Nov 30, 2015
+ *  Created on: Dec 1, 2015
  *      Author: alpha
  */
 
 #ifndef WIDGET_H_
 #define WIDGET_H_
 
-const int MAX_STRLEN = 200;
+#include "LCD/widget/Renderable.h"
+#include "LCD/lcd_include.h"
 
 namespace LCD {
 namespace Window {
 
-class Widget {
+class Widget: public virtual Renderable {
+  vector<Renderable*> children;
 public:
-  int x, y;
-  int width, height;
 	Widget();
-  Widget(int, int, int, int);
+  Widget(POS_INFO);
+  Widget& add_child(Renderable*);
+  virtual void render(int, int, Color);
 	virtual ~Widget();
-  virtual void render() = 0;
-  virtual bool onMouseDown(int x, int y) {
-    return false;
-  };
-  virtual bool onMouseMove(int x, int y) {
-    return false;
-  }; 
-  virtual bool onMouseUp(int x, int y) {
-    return false;
-  };
 };
 
 } /* namespace Window */

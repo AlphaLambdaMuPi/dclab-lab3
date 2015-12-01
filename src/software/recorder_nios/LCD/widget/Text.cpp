@@ -15,22 +15,16 @@ Text::Text() {
 
 }
 
-Text::Text(int x, int y, int width, int height, char *s, Color _color)
-  : Widget(x, y, width, height), color(_color) {
-	// TODO Auto-generated constructor stub
-    strcpy(text, s);
+Text::Text(int x, int y, int width, int height, string s, Color _color)
+  : Renderable(x, y, width, height), color(_color), text(s) {
 }
 
-void Text::render() {
-  draw_string(text, x, y+22, color);
+void Text::render(int tx, int ty, Color parent_bgcolor) {
+  draw_string(text, tx+x, ty+y-Window::FONT_HEIGHT, color, bgcolor | parent_bgcolor);
 }
 
 Text::~Text() {
 	// TODO Auto-generated destructor stub
-}
-
-void Text::set_text(char *s) {
-  strcpy(text, s);
 }
 
 } /* namespace Window */

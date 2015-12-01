@@ -11,16 +11,20 @@ obj/default/main.o: main.cpp ../recorder_nios_bsp//HAL/inc/includes.h \
  ../recorder_nios_bsp//HAL/inc/sys/alt_llist.h \
  ../recorder_nios_bsp//HAL/inc/priv/alt_alarm.h \
  ../recorder_nios_bsp//UCOSII/inc/ucos_ii.h \
- ../recorder_nios_bsp//HAL/inc/os_cpu.h audio/audio_core.h typedef.h \
+ ../recorder_nios_bsp//HAL/inc/os_cpu.h global.h \
+ ../recorder_nios_bsp//HAL/inc/io.h \
+ ../recorder_nios_bsp//HAL/inc/alt_types.h audio/audio_core.h typedef.h \
  ../recorder_nios_bsp//drivers/inc/altera_up_avalon_audio.h \
  ../recorder_nios_bsp//HAL/inc/sys/alt_dev.h \
  ../recorder_nios_bsp//HAL/inc/sys/alt_llist.h \
- ../recorder_nios_bsp//HAL/inc/priv/alt_dev_llist.h LCD/lcd_core.h \
+ ../recorder_nios_bsp//HAL/inc/priv/alt_dev_llist.h GUI.h LCD/lcd_core.h \
+ global.h \
  ../recorder_nios_bsp//drivers/inc/altera_up_avalon_video_pixel_buffer_dma.h \
- ../recorder_nios_bsp//HAL/inc/io.h \
- ../recorder_nios_bsp//HAL/inc/alt_types.h LCD/widget/Widget.h \
- LCD/widget/Text.h LCD/widget/Widget.h LCD/widget/../lcd_core.h \
- LCD/widget/Button.h
+ ../recorder_nios_bsp//drivers/inc/altera_avalon_spi.h LCD/window.h \
+ LCD/lcd_core.h LCD/widget/Widget.h LCD/widget/Renderable.h \
+ LCD/lcd_include.h LCD/widget/Container.h LCD/widget/Clickable.h \
+ LCD/widget/Renderable.h LCD/widget/Widget.h LCD/widget/Container.h \
+ LCD/widget/Text.h LCD/widget/Renderable.h LCD/window.h
 
 ../recorder_nios_bsp//HAL/inc/includes.h:
 
@@ -52,6 +56,12 @@ obj/default/main.o: main.cpp ../recorder_nios_bsp//HAL/inc/includes.h \
 
 ../recorder_nios_bsp//HAL/inc/os_cpu.h:
 
+global.h:
+
+../recorder_nios_bsp//HAL/inc/io.h:
+
+../recorder_nios_bsp//HAL/inc/alt_types.h:
+
 audio/audio_core.h:
 
 typedef.h:
@@ -64,20 +74,38 @@ typedef.h:
 
 ../recorder_nios_bsp//HAL/inc/priv/alt_dev_llist.h:
 
+GUI.h:
+
 LCD/lcd_core.h:
+
+global.h:
 
 ../recorder_nios_bsp//drivers/inc/altera_up_avalon_video_pixel_buffer_dma.h:
 
-../recorder_nios_bsp//HAL/inc/io.h:
+../recorder_nios_bsp//drivers/inc/altera_avalon_spi.h:
 
-../recorder_nios_bsp//HAL/inc/alt_types.h:
+LCD/window.h:
+
+LCD/lcd_core.h:
 
 LCD/widget/Widget.h:
+
+LCD/widget/Renderable.h:
+
+LCD/lcd_include.h:
+
+LCD/widget/Container.h:
+
+LCD/widget/Clickable.h:
+
+LCD/widget/Renderable.h:
+
+LCD/widget/Widget.h:
+
+LCD/widget/Container.h:
 
 LCD/widget/Text.h:
 
-LCD/widget/Widget.h:
+LCD/widget/Renderable.h:
 
-LCD/widget/../lcd_core.h:
-
-LCD/widget/Button.h:
+LCD/window.h:

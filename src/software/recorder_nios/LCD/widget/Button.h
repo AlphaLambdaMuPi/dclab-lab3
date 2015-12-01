@@ -8,14 +8,13 @@
 #ifndef BUTTON_H_
 #define BUTTON_H_
 
-#include "Widget.h"
-#include "../lcd_core.h"
+#include "LCD/lcd_include.h"
 #include <cstring>
 
 namespace LCD {
 namespace Window {
 
-class Button: public Widget {
+class Button: public Renderable, Clickable {
   void (*click_handler)(void);
 public:
   char text[MAX_STRLEN];
