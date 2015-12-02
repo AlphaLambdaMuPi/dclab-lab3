@@ -32,6 +32,8 @@ using LCD::Window::StateButton;
 using LCD::Window::Choicer;
 using LCD::Window::Slider;
 
+using LCD::Color;
+
 namespace GUI {
   void init();
   void task();

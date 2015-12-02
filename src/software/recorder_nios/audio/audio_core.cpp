@@ -132,9 +132,9 @@ namespace Audio {
   }
 
   void stop() {
+    mode = 0;
     if (stop_handler)
       stop_handler();
-    mode = 0;
   }
 
   void reset() {

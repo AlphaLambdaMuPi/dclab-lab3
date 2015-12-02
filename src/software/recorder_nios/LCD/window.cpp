@@ -37,7 +37,7 @@ namespace LCD {
 
     void root_render() {
       handle_cursor();
-      Root.render(0, 0, Color{255, 255, 255});
+      Root.render(0, 0, Color());
       swap_buffer();
     }
 
@@ -81,8 +81,8 @@ namespace LCD {
     int draw_string(int x, int y, int width, int height, int c) {
       int h2 = height / 2;
       for (int i=h2; i>=0; i--) {
-        draw_line(x, y+i, x+width*i/h2, y+i);
-        draw_line(x, y+height-i, x+width*i/h2, y+height-i);
+        draw_line(x, y+i, x+width*i/h2, y+i, c);
+        draw_line(x, y+height-i, x+width*i/h2, y+height-i, c);
       }
     }
 

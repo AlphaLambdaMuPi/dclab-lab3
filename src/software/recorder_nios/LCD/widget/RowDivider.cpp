@@ -47,7 +47,7 @@ RowDivider& RowDivider::calc() {
   for (int i=0; i<cc; i++) {
     double tw = w * pers[i] / total;
     children[i]->set_x((int)curx);
-    children[i]->set_y(y);
+    children[i]->set_y(0);
     children[i]->set_width((int)tw);
     printf("tw = %.6f\n", tw);
     children[i]->set_height(height);

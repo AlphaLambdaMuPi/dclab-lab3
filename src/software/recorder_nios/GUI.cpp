@@ -7,7 +7,6 @@
 
 #include "GUI.h"
 
-
 namespace GUI {
 
   const int AUDIO_BUF_LEN = 48000 * 120;
@@ -28,8 +27,14 @@ namespace GUI {
 
   void pause_btn_handler() {
     if (cur_state == 1) {
-        cur_state = 4;
-        pause();
+      cur_state = 4;
+      Audio::pause();
+      btn_pause.set_text("Resume");
+    }
+    else if (cur_state == 4) {
+      cur_state = 1;
+      Audio::resume();
+      btn_pause.set_text("Pause");
     }
   }
 
@@ -61,6 +66,11 @@ namespace GUI {
   void audio_set_speed(int v) {
     Audio::speed = speeds[v];
     speed_text.set_text(speed_desc[v]);
+  }
+
+  void speed_reset_btn_handler() {
+    audio_set_speed(4);
+    speed_slider.value = 0.5;
   }
 
   void time_slider_handler(double value) {
@@ -121,6 +131,7 @@ namespace GUI {
 
     btn_pause = Button(0, 100, 200, 100, "Pause", {255, 255, 255}, dark_gray);
     Root.add_child(&btn_pause);
+    btn_pause.set_click_handler(&pause_btn_handler);
 
     audio_slider = Slider(200, 100, 400, 100);
     audio_slider.set_ball_color({254, 153, 0})
@@ -134,6 +145,7 @@ namespace GUI {
 
     btn_speed_reset = Button(0, 220, 200, 100, "Reset speed", white, dark_gray);
     Root.add_child(&btn_speed_reset);
+    btn_speed_reset.set_click_handler(&speed_reset_btn_handler);
 
     speed_slider = Slider(200, 220, 400, 100);
     speed_slider.set_value(0.5).set_ball_color({254, 153, 0})
@@ -143,13 +155,24 @@ namespace GUI {
     speed_text.set_bgcolor(dark_gray);
     Root.add_child(&speed_text);
 
-    btn_loop = StateButton(0, 320, 200, 100, "loop", white, dary_gray, {0, 80, 20});
-    btn_loop.set_click_handler(loop_btn_handler);
+    btn_loop = StateButton(0, 320, 200, 100, "loop", white, dark_gray, {0, 80, 20});
+    btn_loop.set_state(0).set_click_handler(loop_btn_handler);
+    Root.add_child(&btn_loop);
 
-    bot_row = Choicer(200, 320, 400, 100);
+    btn_inter0.set_bgcolor({255, 0, 0});
+
+    bot_row = Choicer(200, 320, 600, 100);
     bot_row.add_child(&btn_inter0).add_child(&btn_inter1);
     bot_row.calc();
+    btn_inter0.set_bgcolor_active({200, 200, 200})
+      .set_bgcolor_inactive({120, 120, 120}).set_text("0th order Interp").set_bgcolor({120, 120, 120});
+    btn_inter0.set_state(1);
+    btn_inter1.set_bgcolor_active({200, 200, 200})
+      .set_bgcolor_inactive({120, 120, 120}).set_text("1th order Interp").set_bgcolor({120, 120, 120});
+
     bot_row.set_handler(choicer_bot_handler);
+
+    Root.add_child(&bot_row);
   }
 
   void task() {
